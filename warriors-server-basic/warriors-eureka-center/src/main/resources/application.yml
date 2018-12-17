@@ -1,0 +1,25 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: server-eureka
+#  security:
+#    basic:
+#      enabled: true     #eureka用户是否认证
+#    user:
+#      name: eureka      #eureka 用户名
+#      password: eureka  #eureka 密码
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://127.0.0.1:8001/eureka
+
+
+
