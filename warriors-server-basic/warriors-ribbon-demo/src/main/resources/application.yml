@@ -6,4 +6,4 @@ server:
   port: 8101
 spring:
   application:
-    name: warriors-service-ribbon
+    name: warriors-server-ribbon

@@ -6,7 +6,7 @@ server:
   port: 8102
 spring:
   application:
-    name: warriors-service-feign
+    name: warriors-server-feign
 # springcloud2.0 以后feign的容错机默认是关闭的。需要我们进行如下配置开启
 feign:
   hystrix:
