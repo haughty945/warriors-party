@@ -9,29 +9,30 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/mine-lee/spring-cloud.git   # git 路径
-          search-paths: repo/*                                # 文件夹<可配置多个，用逗号分隔>
+          uri: https://github.com/mine-lee/warriors-party.git   # git 路径
+#          https://github.com/mine-lee/warriors-party/blob/master/warriors-config-repo/warriors-server-element/warriors-server-element-dev.yml
+          search-paths: warriors-config-repo/*                  # 文件夹<可配置多个，用逗号分隔>
           username:
           password:
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest
 
-management:
-  security:
-    enabled: false    # 刷新时关闭安全验证
+#management:
+#  security:
+#    enabled: false    # 刷新时关闭安全验证
 
 eureka:
   instance:
     prefer-ip-address: true
-#    ip-address: 127.0.0.1
+    ip-address: 127.0.0.1
     lease-expiration-duration-in-seconds: 3     # 服务失效时间，默认值90秒
     lease-renewal-interval-in-seconds: 1        # 服务续约的间隔，默认为30秒
   client:
     serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
+      defaultZone: http://127.0.0.1:8001/eureka/
 
 # http请求地址和资源文件映射如下:
 #     /{application}/{profile}/{label}

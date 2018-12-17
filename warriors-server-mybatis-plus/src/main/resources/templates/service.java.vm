@@ -1,0 +1,33 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
+
+import com.mine.${package.ModuleName}.common.ResultVO;
+import com.mine.${package.ModuleName}.dto.${entity}DTO;
+import com.mine.${package.ModuleName}.vo.${entity}VO;
+
+/**
+ * @Author : ${author}
+ * @Date   : ${date}
+ * @Remark :【$!{table.comment}】代理层
+ */
+#if(${kotlin})
+interface ${table.serviceName} : ${superServiceClass}<${entity}>
+#else
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+
+   public ResultVO<?> search${entity}List(${entity}DTO dto);
+
+   public ResultVO<?> search${entity}ListPage(${entity}DTO dto);
+
+   public ResultVO<?> search${entity}One(${entity}DTO dto);
+
+   public ResultVO<?> add${entity}(${entity}DTO dto);
+
+   public ResultVO<?> update${entity}(${entity}DTO dto);
+
+   public ResultVO<?> delete${entity}(${entity}DTO dto);
+
+}
+#end

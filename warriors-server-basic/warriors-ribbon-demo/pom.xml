@@ -12,7 +12,7 @@
     <artifactId>warriors-ribbon-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>warriors-server-ribbon</name>
+    <name>warriors-ribbon-demo</name>
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
