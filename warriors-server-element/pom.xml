@@ -12,7 +12,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>warriors-server-element</name>
-    <description>作为一个辛苦的测试工程的存在</description>
+    <description>作为一个辛苦的测试元素的存在</description>
 
     <dependencies>
         <dependency>
