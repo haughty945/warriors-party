@@ -13,35 +13,10 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.ip-address}:8001/eureka/
 
-
-
-management:
-  security:
-    enabled: false    # 刷新时关闭安全验证
-  endpoints:
-    web:
-      exposure:
-        include: bus-refresh
-
 #spring全家桶
 spring:
-#spring:
-  cloud:
-    config:
-      name: warriors-server-element       # 服务ID
-      #      uri: http://127.0.0.1:8888
-      #      discovery:开启通过服务调用config-server读取git的配置
-      discovery:
-        enabled: true
-        serviceId: warriors-config-center # 配置中心的ID
-      label: master   # git默认就是master,默认master可以不写
-      profile: dev
-    bus:
-      enabled: true   # 开启服务刷新
-      trace:
-        enabled: true # 开启消息跟踪
   application:
-    name: warriors-server-element   # 唯一的服务名称或者也可以称为ID
+    name: warriors-server-element1   # 唯一的服务名称或者也可以称为ID
   #数据库连接
   datasource:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
