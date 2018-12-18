@@ -1,13 +1,19 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
 server:
   port: 8102
+
 spring:
   application:
     name: warriors-server-feign
+
 # springcloud2.0 以后feign的容错机默认是关闭的。需要我们进行如下配置开启
 feign:
   hystrix:
     enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
+
+

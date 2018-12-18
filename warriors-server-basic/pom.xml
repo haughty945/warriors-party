@@ -10,18 +10,18 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.mine</groupId>
+    <artifactId>warriors-server-basic</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>warriors-server-basic</name>
+    <description>SpringCloud基础模块</description>
+
     <modules>
         <module>warriors-eureka-center</module>
         <module>warriors-config-center</module>
         <module>warriors-ribbon-demo</module>
         <module>warriors-feign-demo</module>
     </modules>
-
-    <groupId>com.mine</groupId>
-    <artifactId>warriors-server-basic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>warriors-server-basic</name>
-    <description>Demo project for Spring Boot</description>
-
 
 </project>

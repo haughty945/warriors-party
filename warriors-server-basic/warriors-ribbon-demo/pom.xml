@@ -13,13 +13,9 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>warriors-ribbon-demo</name>
-    <description>Demo project for Spring Boot</description>
+    <description>ribbon服务调用测试工程</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
