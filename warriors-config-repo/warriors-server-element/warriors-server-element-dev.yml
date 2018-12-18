@@ -1,6 +1,6 @@
 #服务端口
 server:
-  port: 8005
+  port: 8002
 
 #基于Eureka的注册中心
 eureka:
@@ -16,7 +16,7 @@ eureka:
 #spring全家桶
 spring:
   application:
-    name: warriors-server-element1   # 唯一的服务名称或者也可以称为ID
+    name: warriors-server-element   # 唯一的服务名称或者也可以称为ID
   #数据库连接
   datasource:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
