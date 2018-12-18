@@ -5,9 +5,9 @@ server:
 #基于Eureka的注册中心
 eureka:
   instance:
-#    prefer-ip-address: true                     # 使用IP注册（默认关闭状态显示机器名）
-#    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取IPv4地址
-    hostname: mine
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    ip-address: 127.0.0.1                       # 指定IP地址，不知道的缺省值读取本机IPv4地址（无论服务中心是在公网，还是在内网）
+    hostname: mine                              # 在配置prefer-ip-address为true后将失效。可以使用nginx指向一个地址
     lease-renewal-interval-in-seconds: 2        # 服务续约周期，默认为30秒
     lease-expiration-duration-in-seconds: 3     # 服务失效时间，默认值90秒
   client:
