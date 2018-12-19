@@ -66,6 +66,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <!--此处主要是为了引入spring-boot-autoconfigure-processor,否则在部分环境可能出现不可控的注册问题-->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
