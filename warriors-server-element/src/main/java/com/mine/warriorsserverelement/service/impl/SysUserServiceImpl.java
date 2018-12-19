@@ -3,13 +3,13 @@ package com.mine.warriorsserverelement.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.mine.warriorsservercommon.pojo.ResultVO;
+import com.mine.warriorsservercommon.utils.BeanCopyUtil;
+import com.mine.warriorsservercommon.utils.ResultVOUtil;
 import com.mine.warriorsserverelement.dto.SysUserDTO;
 import com.mine.warriorsserverelement.entity.SysUser;
 import com.mine.warriorsserverelement.mapper.SysUserMapper;
 import com.mine.warriorsserverelement.service.ISysUserService;
-import com.mine.warriorsservermybatisplus.common.ResultVO;
-import com.mine.warriorsservermybatisplus.common.utils.BeanCopyUtil;
-import com.mine.warriorsservermybatisplus.common.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -77,7 +77,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public ResultVO<?> deleteSysUser(SysUserDTO dto) {
         SysUser entity = new SysUser();
-        SysUser result = sysUserMapper.selectOne(entity);
+        sysUserMapper.selectOne(entity);
         return ResultVOUtil.returnSuccess();
     }
 

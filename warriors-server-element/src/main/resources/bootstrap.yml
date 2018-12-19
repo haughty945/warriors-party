@@ -1,29 +1,30 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+
 spring:
   cloud:
     config:
-      name: warriors-server-element         # 仓库配置文件的name
+      name: warriors-server-element
       discovery:
         enabled: true
-        serviceId: warriors-config-center   # 配置中心的ID
-      label: master     # git默认master
+        serviceId: warriors-config-center
+      label: master
       profile: dev
     bus:
-      enabled: true     # 开启服务刷新,但是测试发现不配置也可以实现刷新.
-                        # springcloud 2.0 需要进行如下配置:
-                        # management.endpoints.web.exposure.include: bus-refresh
+      enabled: true
 
 management:
   security:
-    enabled: false      # 刷新时关闭安全验证,部分IDE中编译会有警告提示,忽略
+    enabled: false
   endpoints:
     web:
       exposure:
         include: bus-refresh
 
-# 此处的eureka配置作为config-clinet找到config-server的载体
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8001/eureka/
+
 
 

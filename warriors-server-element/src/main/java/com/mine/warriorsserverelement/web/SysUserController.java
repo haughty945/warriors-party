@@ -1,10 +1,10 @@
 package com.mine.warriorsserverelement.web;
 
 import com.baomidou.mybatisplus.plugins.Page;
+import com.mine.warriorsservercommon.pojo.ResultVO;
 import com.mine.warriorsserverelement.dto.SysUserDTO;
 import com.mine.warriorsserverelement.entity.SysUser;
 import com.mine.warriorsserverelement.service.ISysUserService;
-import com.mine.warriorsservermybatisplus.common.ResultVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @Author : mine_lee
- * @Date : 2018-12-17
+ * @Date   : 2018-12-17
  * @Remark :【用户】控制层
  */
 @Slf4j

@@ -1,4 +1,4 @@
-package com.mine.warriorsservermybatisplus.common.generator;
+package com.mine.warriorsservermybatisplus.generator;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;

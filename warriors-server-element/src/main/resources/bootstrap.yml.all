@@ -2,6 +2,7 @@
 #server:
 #  port: 8003
 
+# 此处的eureka配置作为config-clinet找到config-server的载体
 eureka:
   instance:
 #    prefer-ip-address: true                     # 使用IP注册（默认关闭状态显示机器名）
@@ -10,7 +11,7 @@ eureka:
 #    lease-expiration-duration-in-seconds: 3     # 服务失效时间，默认值90秒
   client:
     serviceUrl:
-      defaultZone: http://127.0.0.1:8001/eureka/
+      defaultZone: http://127.0.0.1:8000/eureka/
 
 spring:
   cloud:
@@ -24,7 +25,9 @@ spring:
       label: master   # git默认就是master,默认master可以不写
       profile: dev
     bus:
-      enabled: true   # 开启服务刷新,但是测试发现不配置也可以实现刷新
+      enabled: true     # 开启服务刷新,但是测试发现不配置也可以实现刷新.
+                        # springcloud 2.0 需要进行如下配置:
+                        # management.endpoints.web.exposure.include: bus-refresh
 
 management:
   security:

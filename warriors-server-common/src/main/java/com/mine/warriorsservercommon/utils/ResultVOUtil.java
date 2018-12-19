@@ -1,6 +1,7 @@
-package com.mine.warriorsservermybatisplus.common.utils;
+package com.mine.warriorsservercommon.utils;
 
 
+import com.mine.warriorsservercommon.pojo.ResultVO;
 import com.mine.warriorsservermybatisplus.common.ResultVO;
 
 import java.util.HashMap;

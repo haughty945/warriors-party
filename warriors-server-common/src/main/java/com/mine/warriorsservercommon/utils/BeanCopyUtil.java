@@ -1,4 +1,4 @@
-package com.mine.warriorsservermybatisplus.common.utils;
+package com.mine.warriorsservercommon.utils;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;

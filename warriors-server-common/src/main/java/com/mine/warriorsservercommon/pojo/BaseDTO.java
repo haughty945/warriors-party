@@ -1,4 +1,4 @@
-package com.mine.warriorsservermybatisplus.common;
+package com.mine.warriorsservercommon.pojo;
 
 import lombok.Data;
 

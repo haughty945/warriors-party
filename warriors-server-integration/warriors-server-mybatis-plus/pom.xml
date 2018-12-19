@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mine</groupId>
-        <artifactId>warriors-party</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <artifactId>warriors-server-integration</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.mine</groupId>

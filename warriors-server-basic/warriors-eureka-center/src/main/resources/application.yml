@@ -1,31 +1,20 @@
 server:
-  port: 8001
+  port: 8000
 
 spring:
   application:
     name: warriors-server-eureka
-#  security:
-#    basic:
-#      enabled: true     #eureka用户是否认证
-#    user:
-#      name: eureka      #eureka 用户名
-#      password: eureka  #eureka 密码
+  security:
+    user:
+      name: eureka
+      password: eureka
 
 eureka:
-  instance:
-    prefer-ip-address: true               # 使用IP注册（默认关闭缺省值为机器名）
-    ip-address: 127.0.0.1                 # 指定IP地址，不指定缺省值读取本机IPv4地址（无论服务中心是在公网，还是在内网）
-#    hostname: mine                        # 在配置prefer-ip-address为true后将失效。可以使用nginx指向一个地址
-    appname: ${spring.application.name}
-  server:
-    enable-self-preservation: false       # 关闭自我保护默认（默认为打开)
-    eviction-interval-timer-in-ms: 5000   # 续期周期,即扫描失效服务的间隔时间（缺省为60000ms）
+  instance:           
+    preferIpAddress: true
+    instanceId: ${spring.cloud.client.ip-address}:${server.port}
   client:
-    registerWithEureka: false             # 不要向注册中心注册自己
-    fetchRegistry: false                  # 表示不去检索其他的服务
-    serviceUrl:
-#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka
-      defaultZone: http://${eureka.instance.ip-address}:${server.port}/eureka/
-
-
-
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://eureka:eureka@127.0.0.1:8000/eureka/

@@ -1,9 +1,10 @@
 package com.mine.warriorsserverelement.dto;
 
-import com.mine.warriorsservermybatisplus.common.BaseDTO;
+import com.mine.warriorsservercommon.pojo.BaseDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @Data
 @ApiModel(value = "【用户】交互层")
+@EqualsAndHashCode(callSuper = false)
 public class SysUserDTO extends BaseDTO {
 
     @ApiModelProperty(value = "主键ID")

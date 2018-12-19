@@ -1,4 +1,4 @@
-package com.mine.warriorsservermybatisplus.common;
+package com.mine.warriorsservercommon.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
