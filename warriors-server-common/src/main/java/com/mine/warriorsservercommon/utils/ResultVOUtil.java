@@ -2,7 +2,6 @@ package com.mine.warriorsservercommon.utils;
 
 
 import com.mine.warriorsservercommon.pojo.ResultVO;
-import com.mine.warriorsservermybatisplus.common.ResultVO;
 
 import java.util.HashMap;
 import java.util.Map;
