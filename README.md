@@ -1,14 +1,18 @@
 # warriors-party
 云服务项目&lt;学习>
 
-## 项目搭建中版本参阅：
+## 项目搭建中版本参阅:
     
-    https://www.oschina.net/news/97226/spring-cloud-finchley-released
-    https://blog.csdn.net/qq_37170583/article/details/80704904
-   
-       springcloud ---Finchley.RELEASE和springboot 2.0.6似乎有一些小问题如果出现问题,请降低版本  Finchley.SR1和2.0.3
+    ·https://www.oschina.net/news/97226/spring-cloud-finchley-released
+    ·https://blog.csdn.net/qq_37170583/article/details/80704904
+    
+    springcloud ---Finchley.RELEASE和springboot 2.0.6似乎有一些小问题如果出现问题,请降低版本  Finchley.SR1和2.0.3
+    
+### springboot热部署参阅:
 
-## Eureka-Server 注册中心    
+    https://www.cnblogs.com/winner-0715/p/6666579.html#_label0
+    
+## Eureka-Server 注册中心: 
 
         如果在Eureka Server的首页看到以下这段提示，则说明Eureka已经进入了保护模式:
     
@@ -36,7 +40,7 @@
 
 ### 子服务中的配置文件说明参阅:
     
-    https://blog.csdn.net/xx326664162/article/details/80048704
+    ·https://blog.csdn.net/xx326664162/article/details/80048704
     
         上述我们提到Eureka-Server不止一个。因此我们再注册配置注册中心的地址就可以配置多个，以逗号分隔，当然也可以配置一个，因为Eureka集群中的节
     点都是相互同步的。
@@ -44,3 +48,4 @@
                 lease-renewal-interval-in-seconds：服务续约的间隔，默认为30秒
         就是说，默认情况下每隔30秒服务会向注册中心发送一次心跳，证明自己还活着。如果超过90秒没有发送心跳，EurekaServer就会认为该服务宕机，会从服
     务列表中移除，把它保护起来，暂时停止服务。
+    
