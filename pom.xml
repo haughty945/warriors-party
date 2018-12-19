@@ -61,16 +61,10 @@
             <version>${swagger.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.mine</groupId>
-            <artifactId>warriors-server-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <!--此处主要是为了引入spring-boot-autoconfigure-processor,否则在部分环境可能出现不可控的注册问题-->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-            <scope>true</scope>
+            <!--<scope>true</scope>-->
         </dependency>
     </dependencies>
 
@@ -88,6 +82,14 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--以下配置为必须-->
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
