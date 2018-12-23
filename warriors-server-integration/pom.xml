@@ -19,6 +19,7 @@
 
     <modules>
         <module>warriors-server-mybatis-plus</module>
+        <module>warriors-server-rabbitMQ</module>
     </modules>
 
     <!--<dependencies>-->

@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+
+spring:
+  application:
+    name: warriors-server-rabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true    #  消息发送到交换机确认机制,是否确认回调
+    publisher-returns: true
+
+logging:
+  level:
+    com:
+      mine:
+        warriorsserverrabbitmq:
+          mapper: debug
