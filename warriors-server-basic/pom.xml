@@ -17,6 +17,15 @@
     <name>warriors-server-basic</name>
     <description>SpringCloud基础模块</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <!--<scope>true</scope>-->
+        </dependency>
+    </dependencies>
+
     <modules>
         <module>warriors-eureka-center</module>
         <module>warriors-config-center</module>
