@@ -1,0 +1,30 @@
+#服务端口
+server:
+  port: 8003
+
+#基于Eureka的注册中心
+eureka:
+  instance:
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+
+spring:
+  application:
+    name: warriors-server-rabbitMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true    #  消息发送到交换机确认机制,是否确认回调
+    publisher-returns: true
+
+#sql输出级别
+logging:
+  level:
+    com:
+      mine:
+        warriorsserverrabbitmq:
+          mapper: debug
