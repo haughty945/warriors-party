@@ -14,7 +14,7 @@ spring:
   application:
     name: warriors-server-rabbitMQ
   rabbitmq:
-    host: localhost
+    host: 127.0.0.1
     port: 5672
     username: guest
     password: guest

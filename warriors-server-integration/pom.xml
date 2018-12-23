@@ -22,12 +22,11 @@
         <module>warriors-server-rabbitMQ</module>
     </modules>
 
-    <!--<dependencies>-->
-        <!--<dependency>-->
-            <!--<groupId>com.mine</groupId>-->
-            <!--<artifactId>warriors-server-common</artifactId>-->
-            <!--<version>0.0.1-SNAPSHOT</version>-->
-        <!--</dependency>-->
-    <!--</dependencies>-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
