@@ -21,4 +21,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: bus-refresh
+#        include: bus-refresh
+        include: "*"  # * 在yaml 文件属于关键字，所以需要加引号
+
+#        https://www.liangzl.com/get-article-detail-4864.html
