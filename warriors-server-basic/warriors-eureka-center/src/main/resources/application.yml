@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: warriors-server-eureka
+    name: warriors-eureka-center
   security:
     user:
       name: eureka
