@@ -5,7 +5,8 @@ server:
 #基于Eureka的注册中心
 eureka:
   instance:
-    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    prefer-ip-address: true                     # 使用IP注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     serviceUrl:
       defaultZone: http://127.0.0.1:8000/eureka/
