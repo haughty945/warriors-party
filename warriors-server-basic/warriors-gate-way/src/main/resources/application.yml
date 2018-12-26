@@ -13,10 +13,19 @@ eureka:
 
 spring:
   application:
-    name: warriors-gate-way
+    name: warriors-gateway-zuul
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
+zuul:
+  prefix: /api
+  routes:
+    warriors-server-rabbitMQ:
+      path: /rabbitMQ/**
+      serviceId: warriors-server-rabbitMQ
+
+
