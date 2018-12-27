@@ -1,22 +1,24 @@
-package com.mine.warriorsserverelement.entity;
+package com.mine.warriorsservermybatisplus.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableLogic;
-import com.baomidou.mybatisplus.annotations.TableName;
+import io.swagger.annotations.ApiModel;
 import com.baomidou.mybatisplus.enums.IdType;
+import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotations.TableLogic;
+import com.baomidou.mybatisplus.annotations.Version;
+import java.io.Serializable;
+import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-import java.util.Date;
-
 
 /**
  * @Author : mine_lee
- * @Date : 2018-12-17
+ * @Date   : 2018-12-27
  * @Remark :【用户】实体类
  */
 @Data
@@ -56,7 +58,7 @@ public class SysUser extends Model<SysUser> {
     @TableField("create_time")
     private Date createTime;
     /**
-     * 逻辑删除 0 存在 1 删除
+     * 逻辑删除
      */
     @TableField("delete_flag")
     @TableLogic

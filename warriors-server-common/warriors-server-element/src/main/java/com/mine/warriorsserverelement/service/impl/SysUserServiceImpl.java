@@ -40,9 +40,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public ResultVO<?> searchSysUserListPage(SysUserDTO dto) {
-        Page<SysUser> page = new Page<SysUser>();
-        page.setSize(dto.getSize());
-        page.setCurrent(dto.getCurrent());
+        Page<SysUser> page = new Page<SysUser>(dto.getCurrent(),dto.getSize());
         EntityWrapper<SysUser> entityWrapper = new EntityWrapper<SysUser>();
         SysUser entity = new SysUser();
         BeanCopyUtil.copyPropertiesIgnoreNull(dto, entity);
@@ -76,8 +74,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public ResultVO<?> deleteSysUser(SysUserDTO dto) {
-        SysUser entity = new SysUser();
-        sysUserMapper.selectOne(entity);
+        sysUserMapper.deleteById(dto.getUserId());
         return ResultVOUtil.returnSuccess();
     }
 

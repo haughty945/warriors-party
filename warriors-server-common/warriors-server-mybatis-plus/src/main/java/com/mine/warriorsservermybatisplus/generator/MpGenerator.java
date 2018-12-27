@@ -34,9 +34,9 @@ public class MpGenerator {
     /**
      *  Project config
      */
-    private static String projectDir = "D:\\workspace\\GitHub\\warriors-party\\warriors-server-element";
+    private static String projectDir = "D:\\workspace\\my\\_java\\新建文件夹\\warriors-party\\warriors-server-common\\warriors-server-mybatis-plus";
     private static String parent = "com.mine";
-    private static String modelName = "warriorsserverelement";
+    private static String modelName = "warriorsservermybatisplus";
     private static String author = "mine_lee";
 
 
