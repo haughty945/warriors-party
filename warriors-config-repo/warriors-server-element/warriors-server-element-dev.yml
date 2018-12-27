@@ -1,0 +1,69 @@
+#服务端口
+server:
+  port: 8001
+
+#基于Eureka的注册中心
+eureka:
+  instance:
+    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 2        # 服务续约周期，缺省值为30s
+    lease-expiration-duration-in-seconds: 3     # 服务失效时间，缺省值为90s
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+
+#spring全家桶
+spring:
+  application:
+    name: warriors-server-element   # 唯一的服务名称或者也可以称为ID
+  #数据库连接
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  #rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+#mybatis-plus
+mybatis-plus:
+  #实体扫描<包>，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.mine.warriorsserverelement.entity
+  #mapper配置
+  mapper-locations: classpath:/mapper/**Mapper.xml
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: true
+    #刷新mapper 调试神器
+    refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    #序列接口实现类配置
+    #key-generator: com.baomidou.springboot.xxx
+    #逻辑删除配置（下面2个配置）
+    logic-delete-value: 1         # 逻辑删除
+    logic-not-delete-value: 0     # 存在
+    #自定义SQL注入器
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.xxx
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+#sql输出级别
+logging:
+  level:
+    com:
+      mine:
+        warriorsserverelement:
+          mapper: debug
