@@ -25,7 +25,7 @@ public class WarriorsServerElementApplication {
 
     @RequestMapping("hi")
     public String hi() {
-        return "当前正在访问element项目 + 服务器中的端口为" + port;
+        return "WarriorsServerElementApplication + 服务器中的端口为" + port;
     }
 
 }

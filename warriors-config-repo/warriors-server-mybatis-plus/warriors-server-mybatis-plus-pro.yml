@@ -5,7 +5,7 @@ server:
 #基于Eureka的注册中心
 eureka:
   instance:
-#    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
+    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
     prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     lease-renewal-interval-in-seconds: 2        # 服务续约周期，缺省值为30s
@@ -17,7 +17,7 @@ eureka:
 #spring全家桶
 spring:
   application:
-    name: warriors-server-element   # 唯一的服务名称或者也可以称为ID
+    name: warriors-server-mybatis-plus   # 唯一的服务名称或者也可以称为ID
   #数据库连接
   datasource:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
@@ -34,7 +34,7 @@ spring:
 #mybatis-plus
 mybatis-plus:
   #实体扫描<包>，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.mine.warriorsserverelement.entity
+  typeAliasesPackage: com.mine.warriorsservermybatisplus.entity
   #mapper配置
   mapper-locations: classpath:/mapper/**Mapper.xml
   global-config:
@@ -65,5 +65,5 @@ logging:
   level:
     com:
       mine:
-        warriorsserverelement:
+        warriorsservermybatisplus:
           mapper: debug

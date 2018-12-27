@@ -25,7 +25,10 @@ zuul:
   prefix: /api
   routes:
     warriors-server-rabbitMQ:
-      path: /rabbitMQ/**
+      path: /warriors-server-rabbitMQ/**
       serviceId: warriors-server-rabbitMQ
+    warriors-server-element:
+      path: /warriors-server-element/**
+      serviceId: warriors-server-element
 
 

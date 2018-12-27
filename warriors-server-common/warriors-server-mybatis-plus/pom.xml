@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mine</groupId>
-        <artifactId>warriors-server-integration</artifactId>
+        <artifactId>warriors-server-common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -15,6 +15,10 @@
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!-- druid阿里巴巴数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
