@@ -20,6 +20,7 @@
         <module>warriors-server-rabbitMQ</module>
         <module>warriors-server-redis</module>
         <module>warriors-server-quartz</module>
+        <module>warriors-server-jpa</module>
     </modules>
 
     <dependencies>
