@@ -16,7 +16,6 @@
     <description>公共组件</description>
 
     <modules>
-        <module>warriors-server-element</module>
         <module>warriors-server-mybatis-plus</module>
         <module>warriors-server-rabbitMQ</module>
         <module>warriors-server-redis</module>

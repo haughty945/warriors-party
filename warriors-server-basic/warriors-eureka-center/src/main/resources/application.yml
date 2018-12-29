@@ -5,18 +5,20 @@ spring:
   application:
     name: warriors-eureka-center
   security:
+    basic:
+      enabled: true # 开启基于HTTP basic的认证
     user:
-      name: eureka
-      password: eureka
+      name: eureka     # 配置登录的账号是user
+      password: eureka #配置登录的密码是password123
 
 eureka:
   instance:           
     preferIpAddress: true
     instanceId: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 2        # 服务续约周期，默认为30秒
-    lease-expiration-duration-in-seconds: 3     # 服务失效时间，默认值90秒
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，默认为30秒
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，默认值90秒
   client:
     registerWithEureka: false
     fetchRegistry: false
     service-url:
-      defaultZone: http://eureka:eureka@127.0.0.1:8000/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${spring.cloud.client.ip-address}:${server.port}/eureka/
