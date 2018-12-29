@@ -18,6 +18,12 @@ eureka:
 spring:
   application:
     name: warriors-server-quartz   # 唯一的服务名称或者也可以称为ID
+  #数据库连接
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
   #rabbitmq
   rabbitmq:
     host: 127.0.0.1
