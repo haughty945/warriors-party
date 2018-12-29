@@ -1,6 +1,6 @@
 package com.mine.warriorsserverrabbitmq.consumer;
 
-import com.mine.warriorsserverrabbitmq.Enum.RabbitConstant;
+import com.mine.warriorsserverrabbitmq.constant.RabbitConstant;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 

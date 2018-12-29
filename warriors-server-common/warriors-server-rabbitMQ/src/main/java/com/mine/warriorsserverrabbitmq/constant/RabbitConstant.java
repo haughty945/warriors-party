@@ -1,4 +1,4 @@
-package com.mine.warriorsserverrabbitmq.Enum;
+package com.mine.warriorsserverrabbitmq.constant;
 
 /**
  * @Author : john_lee

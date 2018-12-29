@@ -1,6 +1,6 @@
 package com.mine.warriorsserverrabbitmq.producer;
 
-import com.mine.warriorsserverrabbitmq.Enum.RabbitConstant;
+import com.mine.warriorsserverrabbitmq.constant.RabbitConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;

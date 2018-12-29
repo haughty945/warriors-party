@@ -1,6 +1,6 @@
 package com.mine.warriorsserverrabbitmq.configuration;
 
-import com.mine.warriorsserverrabbitmq.Enum.RabbitConstant;
+import com.mine.warriorsserverrabbitmq.constant.RabbitConstant;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
