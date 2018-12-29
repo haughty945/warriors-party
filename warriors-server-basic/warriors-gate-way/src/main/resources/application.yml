@@ -31,4 +31,6 @@ zuul:
       path: /warriors-server-element/**
       serviceId: warriors-server-element
 
-
+logging:
+  config: classpath:./logback-spring.xml
+  path: D:/warriors-gateway-zuul/log

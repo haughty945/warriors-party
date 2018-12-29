@@ -1,0 +1,6 @@
+server:
+  port: 8006
+logging:
+  config: classpath:./logback-spring.xml
+  path: D:/nmyslog/nmys
+
