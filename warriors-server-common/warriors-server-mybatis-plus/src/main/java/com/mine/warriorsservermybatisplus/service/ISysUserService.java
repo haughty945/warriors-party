@@ -7,8 +7,8 @@ import com.mine.warriorsservermybatisplus.entity.SysUser;
 
 /**
  * @Author : mine_lee
- * @Date : 2018-12-27
- * @Remark :【用户】代理层
+ * @Date : 2018-12-29
+ * @Remark :【】代理层
  */
 public interface ISysUserService extends IService<SysUser> {
 

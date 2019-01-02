@@ -18,8 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @Author : mine_lee
- * @Date : 2018-12-27
- * @Remark :【用户】实现层
+ * @Date : 2018-12-29
+ * @Remark :【】实现层
  */
 @Slf4j
 @Transactional
@@ -76,7 +76,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public ResultVO<?> deleteSysUser(SysUserDTO dto) {
-        sysUserMapper.deleteById(dto.getUserId());
+        SysUser entity = new SysUser();
+        SysUser result = sysUserMapper.selectOne(entity);
         return ResultVOUtil.returnSuccess();
     }
 

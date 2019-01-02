@@ -18,8 +18,8 @@ import lombok.experimental.Accessors;
 
 /**
  * @Author : mine_lee
- * @Date   : 2018-12-27
- * @Remark :【用户】实体类
+ * @Date   : 2018-12-29
+ * @Remark :【】实体类
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -28,35 +28,30 @@ import lombok.experimental.Accessors;
 public class SysUser extends Model<SysUser> {
 
     /**
-     * 主键ID
+     * 主键
      */
-    @TableId(value = "user_id", type = IdType.AUTO)
-    private Long userId;
-    /**
-     * 用户名
-     */
-    @TableField("user_name")
-    private String userName;
-    /**
-     * 密码
-     */
-    @TableField("pass_word")
-    private String passWord;
-    /**
-     * 地址
-     */
-    @TableField("user_address")
-    private String userAddress;
-    /**
-     * 备注
-     */
-    @TableField("user_remark")
-    private String userRemark;
+    @TableId(value = "t_id", type = IdType.AUTO)
+    private Long tId;
     /**
      * 创建时间
      */
-    @TableField("create_time")
-    private Date createTime;
+    @TableField("create_date")
+    private Date createDate;
+    /**
+     * 姓名
+     */
+    @TableField("t_name")
+    private String tName;
+    /**
+     * 修改时间
+     */
+    @TableField("update_date")
+    private Date updateDate;
+    /**
+     * 版本号
+     */
+    @Version
+    private Long version;
     /**
      * 逻辑删除
      */
@@ -67,7 +62,7 @@ public class SysUser extends Model<SysUser> {
 
     @Override
     protected Serializable pkVal() {
-        return this.userId;
+        return this.tId;
     }
 
 }

@@ -34,11 +34,10 @@ public class MpGenerator {
     /**
      *  Project config
      */
-    private static String projectDir = "D:\\workspace\\my\\_java\\新建文件夹\\warriors-party\\warriors-server-common\\warriors-server-mybatis-plus";
+    private static String projectDir = "D:\\workspace\\my\\_java\\warriors-party\\warriors-server-common\\warriors-server-mybatis-plus";
     private static String parent = "com.mine";
-    private static String modelName = "warriorsservermybatisplus";
+    private static String moduleName = "warriorsservermybatisplus";
     private static String author = "mine_lee";
-
 
     /**
      *  下面是一些可选的配置
@@ -55,17 +54,12 @@ public class MpGenerator {
 
     private static String frameDir = parent.replace(".","/");
     private static String rootDir = projectDir + "/src/main/";
-    private static String dtoDir = rootDir + "java/" + frameDir + "/" + modelName + "/dto/";
-    private static String voDir = rootDir + "java/" + frameDir + "/" + modelName + "/vo/";
+    private static String dtoDir = rootDir + "java/" + frameDir + "/" + moduleName + "/dto/";
+    private static String voDir = rootDir + "java/" + frameDir + "/" + moduleName + "/vo/";
     private static String mapperDir = rootDir + "resources/mapper/";
 
-
-    /**
-     * <p>
-     * MySQL 生成演示
-     * </p>
-     */
     public static void main(String[] args) {
+
         AutoGenerator mpg = new AutoGenerator();
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -100,7 +94,7 @@ public class MpGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent(parent);
-        pc.setModuleName(modelName);
+        pc.setModuleName(moduleName);
         mpg.setPackageInfo(pc);
         // 注入自定义配置，可以在 VM 中使用 cfg.abc 【可无】
         InjectionConfig cfg = new InjectionConfig() {

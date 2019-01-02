@@ -27,9 +27,9 @@ zuul:
     warriors-server-rabbitMQ:
       path: /warriors-server-rabbitMQ/**
       serviceId: warriors-server-rabbitMQ
-    warriors-server-element:
-      path: /warriors-server-element/**
-      serviceId: warriors-server-element
+    warriors-server-mybatis-plus:
+      path: /warriors-server-mybatis-plus/**
+      serviceId: warriors-server-mybatis-plus
 
 logging:
   config: classpath:./logback-spring.xml

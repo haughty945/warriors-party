@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * @Author : mine_lee
- * @Date   : 2018-12-27
- * @Remark :【用户】映射器
+ * @Date   : 2018-12-29
+ * @Remark :【】映射器
  */
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUser> {

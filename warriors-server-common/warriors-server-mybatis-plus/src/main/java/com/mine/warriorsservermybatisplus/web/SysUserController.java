@@ -18,11 +18,11 @@ import java.util.List;
 
 /**
  * @Author : mine_lee
- * @Date : 2018-12-27
- * @Remark :【用户】控制层
+ * @Date : 2018-12-29
+ * @Remark :【】控制层
  */
 @Slf4j
-@Api(tags = {"【用户】模块API"})
+@Api(tags = {"【】模块API"})
 @RestController
 @RequestMapping("/sysUser")
 public class SysUserController {
@@ -30,37 +30,37 @@ public class SysUserController {
     @Autowired
     private ISysUserService iSysUserService;
 
-    @ApiOperation(value = "用户列表查询", notes = "用户API")
+    @ApiOperation(value = "列表查询", notes = "API")
     @RequestMapping(value = "/searchSysUserList", method = RequestMethod.POST)
     public ResultVO<List<SysUser>> searchSysUserList(@RequestBody SysUserDTO dto) {
         return (ResultVO<List<SysUser>>) iSysUserService.searchSysUserList(dto);
     }
 
-    @ApiOperation(value = "用户列表分页查询", notes = "用户API")
+    @ApiOperation(value = "列表分页查询", notes = "API")
     @RequestMapping(value = "/searchSysUserListPage", method = RequestMethod.POST)
     public ResultVO<Page<SysUser>> searchSysUserListPage(@RequestBody SysUserDTO dto) {
         return (ResultVO<Page<SysUser>>) iSysUserService.searchSysUserListPage(dto);
     }
 
-    @ApiOperation(value = "用户详细查询", notes = "用户API")
+    @ApiOperation(value = "详细查询", notes = "API")
     @RequestMapping(value = "/searchSysUserOne", method = RequestMethod.POST)
     public ResultVO<SysUser> searchSysUserOne(@RequestBody SysUserDTO dto) {
         return (ResultVO<SysUser>) iSysUserService.searchSysUserOne(dto);
     }
 
-    @ApiOperation(value = "用户添加", notes = "用户API")
+    @ApiOperation(value = "添加", notes = "API")
     @RequestMapping(value = "/addSysUser", method = RequestMethod.POST)
     public ResultVO<?> addSysUser(@RequestBody SysUserDTO dto) {
         return iSysUserService.addSysUser(dto);
     }
 
-    @ApiOperation(value = "用户更新", notes = "用户API")
+    @ApiOperation(value = "更新", notes = "API")
     @RequestMapping(value = "/updateSysUser", method = RequestMethod.POST)
     public ResultVO<?> updateSysUser(@RequestBody SysUserDTO dto) {
         return iSysUserService.updateSysUser(dto);
     }
 
-    @ApiOperation(value = "用户删除", notes = "用户API")
+    @ApiOperation(value = "删除", notes = "API")
     @RequestMapping(value = "/deleteSysUser", method = RequestMethod.POST)
     public ResultVO<?> deleteSysUser(@RequestBody SysUserDTO dto) {
         return iSysUserService.deleteSysUser(dto);
