@@ -28,9 +28,10 @@ spring:
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
+    content-type: text/html
     cache: false    # dev 请设置false 否则无法看到实时页面
-    prefix: classpath:/templates/
-    suffix: .html
+#    prefix: classpath:/templates/
+#    suffix: .html
 
 # log输出级别
 logging:
