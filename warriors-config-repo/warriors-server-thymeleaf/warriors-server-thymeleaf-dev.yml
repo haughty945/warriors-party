@@ -1,0 +1,41 @@
+#服务端口
+server:
+  port: 8005
+
+#基于Eureka的注册中心
+eureka:
+  instance:
+    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@127.0.0.1:8000/eureka/
+
+# spring全家桶
+spring:
+  application:
+    name: warriors-server-thymeleaf
+  # rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  # thymeleaf
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false    # dev 请设置false 否则无法看到实时页面
+    servlet:
+      content-type: text/html
+
+# log输出级别
+logging:
+  level:
+    com:
+      mine:
+        warriorsserverthymeleaf:
+          mapper: debug

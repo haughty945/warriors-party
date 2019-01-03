@@ -1,0 +1,1 @@
+　注意，在html标签里一定要引入 xmlns:th="http://www.thymeleaf.org" ，这样thymeleaf模板才会启用。至于thymeleaf的具体使用方法，以后在讲

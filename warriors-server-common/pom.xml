@@ -21,6 +21,8 @@
         <module>warriors-server-redis</module>
         <module>warriors-server-quartz</module>
         <module>warriors-server-jpa</module>
+        <module>warriors-server-logback</module>
+        <module>warriors-server-thymeleaf</module>
     </modules>
 
     <dependencies>
