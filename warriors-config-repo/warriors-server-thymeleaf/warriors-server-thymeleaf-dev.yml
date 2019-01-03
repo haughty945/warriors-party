@@ -29,8 +29,8 @@ spring:
     mode: HTML5
     encoding: UTF-8
     cache: false    # dev 请设置false 否则无法看到实时页面
-    servlet:
-      content-type: text/html
+    prefix: classpath:/templates/
+    suffix: .html
 
 # log输出级别
 logging:
