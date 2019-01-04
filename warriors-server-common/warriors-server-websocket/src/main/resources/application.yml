@@ -1,0 +1,14 @@
+server:
+  port: 8007
+# spring全家桶
+spring:
+  application:
+    name: warriors-server-websocket
+  # thymeleaf
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false    # dev 请设置false 否则无法看到实时页面
+#    prefix: classpath:/templates/
+#    suffix: .html
