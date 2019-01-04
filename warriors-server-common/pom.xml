@@ -28,6 +28,7 @@
         <module>warriors-server-multisource</module>
         <module>warriors-server-async</module>
         <module>warriors-server-websocket</module>
+        <module>warriors-server-aop</module>
     </modules>
 
     <build>
