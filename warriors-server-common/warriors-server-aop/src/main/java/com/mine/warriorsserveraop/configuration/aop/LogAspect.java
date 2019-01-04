@@ -1,21 +1,58 @@
 package com.mine.warriorsserveraop.configuration.aop;
 
-import org.aspectj.lang.JoinPoint;
+import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.ArrayUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Arrays;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Aspect
 @Component
+@Slf4j
 public class LogAspect {
 
     @Pointcut("execution(* com.mine.warriorsserveraop.web.*.*(..))")
     public void pointcut() {
+    }
+
+    /**
+     * 环绕通知,环绕增强，相当于MethodInterceptor
+     */
+    @Around("pointcut()")
+    public Object arround(ProceedingJoinPoint joinPoint) {
+        log.info("[···方法环绕···]--start...↓");
+        boolean exception = false;
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        log.info("REQUEST_TIME : " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        log.info("REQUEST_URL : " + request.getRequestURL().toString());
+        log.info("REQUEST_METHOD : " + request.getMethod());
+        log.info("REQUEST_IP : " + request.getRemoteAddr());
+        log.info("REQUEST_PORT : " + request.getServerPort());
+        log.info("REQUEST_URI : " + request.getRequestURI());
+        log.info("REQUEST_ARGS[] : " + JSON.toJSONString(joinPoint.getArgs()));
+        log.info("JAVA_CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        try {
+//            log.info("方法环绕proceed↑，返回结果是 :" + joinPoint.proceed());
+            log.info("RESPONSE_ARGS : " + JSON.toJSONString(joinPoint.proceed()));
+            return joinPoint.proceed();
+        } catch (Throwable e) {
+            exception = true;
+            return null;
+        } finally {
+            log.info("JAVA_CLASS_EXCEPTION : " + exception);
+            log.info("[···方法环绕···]--end...↑");
+        }
     }
 
     /**
@@ -66,29 +103,4 @@ public class LogAspect {
 //    public void after(JoinPoint joinPoint) {
 //        System.out.println("后置最终通知==>方法最后执行.....");
 //    }
-
-    /**
-     *  环绕通知,环绕增强，相当于MethodInterceptor
-     */
-    @Around("pointcut()")
-    public Object arround(ProceedingJoinPoint joinPoint) {
-        System.out.println("方法环绕start.....↓");
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-        // 记录下请求内容
-        System.out.println("URL : " + request.getRequestURL().toString());
-        System.out.println("HTTP_METHOD : " + request.getMethod());
-        System.out.println("IP : " + request.getRemoteAddr());
-        System.out.println("PORT : " + request.getServerPort());
-        System.out.println("URI : " + request.getRequestURI());
-        System.out.println("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        System.out.println("ARGS : " + Arrays.toString(joinPoint.getArgs()));
-        try {
-            System.out.println("方法环绕proceed↑，返回结果是 :" + joinPoint.proceed());
-            return joinPoint.proceed();
-        } catch (Throwable e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

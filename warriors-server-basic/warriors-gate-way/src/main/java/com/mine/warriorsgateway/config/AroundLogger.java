@@ -5,7 +5,10 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 /**
@@ -18,24 +21,30 @@ import java.util.Arrays;
 @Component
 public class AroundLogger {
 
-    //注解方式的环绕增强处理
-    @Around("execution(* com.mine.warriorsgateway.filter.*.*(..))")
-    public Object aroundLogger(ProceedingJoinPoint jp) {
-        System.out.println(jp);
-        log.info("a调用" + jp.getTarget() + "的" + jp.getSignature().getName() + "方法，方法参数是："
-                + Arrays.toString(jp.getArgs()));
+    /**
+     *  环绕通知,环绕增强，相当于MethodInterceptor
+     */
+    @Around("execution(* com.mine.*.*.*.*(..))")
+    public Object arround(ProceedingJoinPoint joinPoint) {
+        log.info("[方法环绕]--start...↓");
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        // 记录下请求内容
+        log.info("URL : " + request.getRequestURL().toString());
+        log.info("HTTP_METHOD : " + request.getMethod());
+        log.info("IP : " + request.getRemoteAddr());
+        log.info("PORT : " + request.getServerPort());
+        log.info("URI : " + request.getRequestURI());
+        log.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        log.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
         try {
-            Object result = jp.proceed();//调用目标方法，获取目标方法的返回值
-            log.info("a调用" + jp.getTarget() + "的" + jp.getSignature().getName() + "方法，方法返回值是："
-                    + result);
-            return result;
-        } catch (Exception e) {
-            log.error(jp.getSignature().getName() + "方法抛出异常" + e);
-            e.printStackTrace();
+//            log.info("方法环绕proceed↑，返回结果是 :" + joinPoint.proceed());
+            log.info("RETURN :" + joinPoint.proceed());
+            log.info("[方法环绕]--end...");
+            return joinPoint.proceed();
         } catch (Throwable e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }
