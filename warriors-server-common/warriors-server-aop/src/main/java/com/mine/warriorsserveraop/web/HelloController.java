@@ -1,5 +1,6 @@
 package com.mine.warriorsserveraop.web;
 
+import com.mine.warriorsserveraop.common.GlobalReturn;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class HelloController {
         return map;
     }
 
-    @RequestMapping("test2")
+    @PostMapping("test2")
     public Object hello2() {
         int i = 1 / 0;
         return "success2";
@@ -31,15 +32,19 @@ public class HelloController {
     }
 
     @RequestMapping(value = "test4", method = RequestMethod.POST)
-    public Object hello4(@RequestBody Map map) {
-        List<Map> list = new ArrayList<>();
-        list.add(map);
+    public Object hello4(GlobalReturn map) {
+        List<GlobalReturn> list = new ArrayList<>();
         list.add(map);
         return list;
     }
 
-    @RequestMapping(value = "test5", method = RequestMethod.POST)
+    @RequestMapping(value = "test5", method = RequestMethod.GET)
     public Object hello5(@RequestParam(value = "name") String name) {
         return "hello " + name;
+    }
+
+    @RequestMapping(value = "test6", method = RequestMethod.GET)
+    public void hello6() {
+        System.out.println("这是一个测试");
     }
 }
