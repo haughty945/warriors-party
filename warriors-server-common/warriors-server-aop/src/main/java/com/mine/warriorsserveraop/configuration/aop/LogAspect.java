@@ -18,6 +18,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Aspect
 @Component
@@ -111,7 +113,7 @@ public class LogAspect {
     public void throwss(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        log.info(request.getRequestURI() + "接口出现");
+        log.info("EXCEPTION_TIME : " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(new Date()));
 //        System.out.println("异常通知start...");
 //        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue().toString());
     }

@@ -12,20 +12,22 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Controller
 @ControllerAdvice
+@EnableWebMvc
 public class GlobalExceptionHandler implements ErrorController {
 
     @Override
     public String getErrorPath() {
-        return "/noHandlerFoundException";
+        return "/error";
     }
 
-    @RequestMapping("/noHandlerFoundException")
+    @RequestMapping("/error")
     @ResponseBody
     public GlobalReturn NoHandlerFoundException(HttpServletRequest request) {
         GlobalReturn ret = new GlobalReturn();
@@ -37,7 +39,7 @@ public class GlobalExceptionHandler implements ErrorController {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public GlobalReturn ServletException(HttpServletRequest request, Exception e) throws Exception {
-        log.error("【异常拦截】" + "[" + request.getRequestURI() + "]" + "接口出现错误," + e.getMessage());
+        log.error("EXCEPTION_INTERCEPT" + " [ " + request.getRequestURI() + " ] " + "接口出现错误 , " + e.getMessage());
         GlobalReturn ret = new GlobalReturn();
         if (e instanceof HttpRequestMethodNotSupportedException) {
             ret.setErrcode(400);
