@@ -1,6 +1,6 @@
 package com.mine.warriorsserveraop.web;
 
-import com.mine.warriorsserveraop.common.GlobalReturn;
+import com.mine.warriorsservercommon.pojo.GlobalReturn;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
