@@ -1,14 +1,22 @@
 package com.mine.warriorsserveraop.configuration.aop;
 
 import com.alibaba.fastjson.JSON;
+import com.mine.warriorsserveraop.common.GlobalReturn;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 @Aspect
@@ -27,6 +35,8 @@ public class LogAspect {
 //    public Object arround(ProceedingJoinPoint joinPoint) throws Throwable {
 //        log.info("[···方法环绕···]--start...↓");
 //        boolean exception = false;
+//        String JsonRet = "void";
+//        GlobalReturn ret = new GlobalReturn();
 //        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 //        HttpServletRequest request = attributes.getRequest();
 //        log.info("REQUEST_URL : " + request.getRequestURL().toString());
@@ -37,12 +47,17 @@ public class LogAspect {
 //        log.info("REQUEST_ARGS[] : " + JSON.toJSONString(joinPoint.getArgs()));
 //        log.info("JAVA_CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 //        try {
-//            log.info("RESPONSE_ARGS : " + JSON.toJSONString(joinPoint.proceed()));
+//            if (joinPoint.proceed() != null) {
+//                JsonRet = JSON.toJSONString(joinPoint.proceed());
+//            }
+//            log.info("RESPONSE_ARG : " + JsonRet);
 //            return joinPoint.proceed();
 //        } catch (Throwable e) {
+//            ret.setErrcode(500);
+//            ret.setErrmsg("服务器内部异常");
 //            e.printStackTrace();
 //            exception = true;
-//            return null;
+//            return ret;
 //        } finally {
 //            log.info("JAVA_CLASS_EXCEPTION : " + exception);
 //            log.info("[···方法环绕···]--end...↑");

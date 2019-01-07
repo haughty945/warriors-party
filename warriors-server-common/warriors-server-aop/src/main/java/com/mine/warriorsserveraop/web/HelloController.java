@@ -45,6 +45,6 @@ public class HelloController {
 
     @RequestMapping(value = "test6", method = RequestMethod.GET)
     public void hello6() {
-        System.out.println("这是一个测试");
+        System.out.println(System.currentTimeMillis() + "这是一个测试");
     }
 }
