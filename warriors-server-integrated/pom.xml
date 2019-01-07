@@ -10,9 +10,10 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <groupId>com.mine</groupId>
-    <artifactId>warriors-server-common</artifactId>
+    <artifactId>warriors-server-integrated</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>warriors-server-common</name>
+
+    <name>warriors-server-integrated</name>
     <description>公共组件</description>
 
     <modules>

@@ -4,16 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mine</groupId>
-        <artifactId>warriors-server-common</artifactId>
+        <artifactId>warriors-server-integrated</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.mine</groupId>
-    <artifactId>warriors-server-jwt</artifactId>
+    <artifactId>warriors-server-multisource</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>warriors-server-jwt</name>
-    <description>整合jwt权限认证组件</description>
+    <name>warriors-server-multisource</name>
+    <description>整合multisource多数据源组件</description>
 
     <dependencies>
         <dependency>

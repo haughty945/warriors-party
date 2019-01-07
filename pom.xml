@@ -13,7 +13,7 @@
 
     <modules>
         <module>warriors-server-basic</module>
-        <module>warriors-server-common</module>
+        <module>warriors-server-integrated</module>
     </modules>
 
     <groupId>com.mine</groupId>
