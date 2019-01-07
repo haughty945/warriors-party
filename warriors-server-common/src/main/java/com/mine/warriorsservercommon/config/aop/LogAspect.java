@@ -18,7 +18,7 @@ import java.util.Date;
 @Slf4j
 public class LogAspect {
 
-    @Pointcut("execution(* com.mine.*.web.*.*(..))")
+    @Pointcut("execution(* com.mine.*.web.*Controller.*(..))")
     public void pointcut() {
     }
 
