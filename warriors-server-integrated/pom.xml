@@ -14,7 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>warriors-server-integrated</name>
-    <description>公共组件</description>
+    <description>集成其他组件</description>
 
     <modules>
         <module>warriors-server-mybatis-plus</module>
@@ -31,6 +31,10 @@
         <module>warriors-server-websocket</module>
         <module>warriors-server-aop</module>
     </modules>
+
+    <dependencies>
+
+    </dependencies>
 
     <build>
         <plugins>
