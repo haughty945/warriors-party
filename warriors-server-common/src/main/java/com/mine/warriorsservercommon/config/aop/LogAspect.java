@@ -14,8 +14,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @Aspect
 @Component
@@ -37,7 +35,7 @@ public class LogAspect {
 //        log.info("[···方法环绕···]--start...↓");
 //        boolean exception = false;
 //        String JsonRet = "void";
-//        GlobalReturn ret = new GlobalReturn();
+//        GlobalVO ret = new GlobalVO();
 //        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 //        HttpServletRequest request = attributes.getRequest();
 //        log.info("REQUEST_URL : " + request.getRequestURL().toString());

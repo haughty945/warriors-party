@@ -1,6 +1,6 @@
 package com.mine.warriorsservercommon.config.exception;
 
-import com.mine.warriorsservercommon.pojo.GlobalReturn;
+import com.mine.warriorsservercommon.pojo.GlobalVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -29,8 +29,8 @@ public class GlobalExceptionHandler implements ErrorController {
 
     @RequestMapping("/error")
     @ResponseBody
-    public GlobalReturn NoHandlerFoundException(HttpServletRequest request) {
-        GlobalReturn ret = new GlobalReturn();
+    public GlobalVO NoHandlerFoundException(HttpServletRequest request) {
+        GlobalVO ret = new GlobalVO();
         ret.setErrcode(404);
         ret.setErrmsg("接口不存在");
         return ret;
@@ -38,9 +38,9 @@ public class GlobalExceptionHandler implements ErrorController {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public GlobalReturn ServletException(HttpServletRequest request, Exception e) throws Exception {
+    public GlobalVO ServletException(HttpServletRequest request, Exception e) throws Exception {
         log.error("EXCEPTION_INTERCEPT" + " [ " + request.getRequestURI() + " ] " + "接口出现错误 , " + e.getMessage());
-        GlobalReturn ret = new GlobalReturn();
+        GlobalVO ret = new GlobalVO();
         if (e instanceof HttpRequestMethodNotSupportedException) {
             ret.setErrcode(400);
             ret.setErrmsg("请求方式不正确");

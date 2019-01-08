@@ -1,6 +1,6 @@
 package com.mine.warriorsserveraop.web;
 
-import com.mine.warriorsservercommon.pojo.GlobalReturn;
+import com.mine.warriorsservercommon.pojo.GlobalVO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class HelloController {
     }
 
     @RequestMapping(value = "test4", method = RequestMethod.POST)
-    public Object hello4(GlobalReturn map) {
-        List<GlobalReturn> list = new ArrayList<>();
+    public Object hello4(GlobalVO map) {
+        List<GlobalVO> list = new ArrayList<>();
         list.add(map);
         return list;
     }
