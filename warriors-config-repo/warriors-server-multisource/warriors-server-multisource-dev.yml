@@ -45,5 +45,3 @@ logging:
         warriorsservermultisource:
           mapper:
             "*" : DEBUG
-  config: classpath:./logback-spring.xml
-  path: D:/warriors-party/log/${spring.application.name}
