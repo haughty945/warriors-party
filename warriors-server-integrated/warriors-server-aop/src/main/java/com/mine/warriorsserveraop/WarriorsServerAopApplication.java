@@ -16,16 +16,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @RefreshScope
 public class WarriorsServerAopApplication {
 
-    @Bean
-    LogAspect logAspect() {
-        return new LogAspect();
-    }
-
-    @Bean
-    GlobalExceptionHandler globalExceptionHandler() {
-        return new GlobalExceptionHandler();
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(WarriorsServerAopApplication.class, args);
     }
