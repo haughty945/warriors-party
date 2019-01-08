@@ -31,8 +31,8 @@ public class GlobalExceptionHandler implements ErrorController {
     @ResponseBody
     public GlobalVO NoHandlerFoundException(HttpServletRequest request) {
         GlobalVO ret = new GlobalVO();
-        ret.setErrcode(404);
-        ret.setErrmsg("接口不存在");
+        ret.setCode(404);
+        ret.setMsg("接口不存在");
         return ret;
     }
 
@@ -42,14 +42,14 @@ public class GlobalExceptionHandler implements ErrorController {
         log.error("EXCEPTION_INTERCEPT" + " [ " + request.getRequestURI() + " ] " + "接口出现错误 , " + e.getMessage());
         GlobalVO ret = new GlobalVO();
         if (e instanceof HttpRequestMethodNotSupportedException) {
-            ret.setErrcode(400);
-            ret.setErrmsg("请求方式不正确");
+            ret.setCode(400);
+            ret.setMsg("请求方式不正确");
         } else if (e instanceof HttpMessageNotReadableException || e instanceof HttpMediaTypeNotSupportedException || e instanceof MissingServletRequestParameterException) {
-            ret.setErrcode(400);
-            ret.setErrmsg("请求参数不正确");
+            ret.setCode(400);
+            ret.setMsg("请求参数不正确");
         } else {
-            ret.setErrcode(500);
-            ret.setErrmsg("服务器内部异常");
+            ret.setCode(500);
+            ret.setMsg("服务器内部异常");
         }
         e.printStackTrace();
         return ret;
