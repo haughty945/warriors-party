@@ -1,9 +1,9 @@
 package ${package.Service};
 
+import com.mine.warriorsservercommon.pojo.ResultVO;
 import ${package.Entity}.${entity};
 import ${superServiceClassPackage};
 
-import com.mine.${package.ModuleName}.common.ResultVO;
 import com.mine.${package.ModuleName}.dto.${entity}DTO;
 import com.mine.${package.ModuleName}.vo.${entity}VO;
 

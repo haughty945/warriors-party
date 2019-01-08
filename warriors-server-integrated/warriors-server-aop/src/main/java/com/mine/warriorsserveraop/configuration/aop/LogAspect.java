@@ -1,7 +1,7 @@
 //package com.mine.warriorsserveraop.configuration.aop;
 //
 //import com.alibaba.fastjson.JSON;
-//import com.mine.warriorsserveraop.common.GlobalVO;
+//import com.mine.warriorsserveraop.common.ResultVO;
 //import lombok.extern.slf4j.Slf4j;
 //import org.aspectj.lang.JoinPoint;
 //import org.aspectj.lang.ProceedingJoinPoint;
@@ -38,7 +38,7 @@
 ////        log.info("[···方法环绕···]--start...↓");
 ////        boolean exception = false;
 ////        String JsonRet = "void";
-////        GlobalVO ret = new GlobalVO();
+////        ResultVO ret = new ResultVO();
 ////        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 ////        HttpServletRequest request = attributes.getRequest();
 ////        log.info("REQUEST_URL : " + request.getRequestURL().toString());

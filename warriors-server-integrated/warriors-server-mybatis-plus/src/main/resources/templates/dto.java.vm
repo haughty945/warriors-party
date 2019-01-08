@@ -1,6 +1,6 @@
 package com.mine.${package.ModuleName}.dto;
 
-import com.mine.${package.ModuleName}.common.BaseDTO;
+import com.mine.warriorsservercommon.pojo.BaseDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

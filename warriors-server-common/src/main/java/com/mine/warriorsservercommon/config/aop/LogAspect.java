@@ -1,13 +1,9 @@
 package com.mine.warriorsservercommon.config.aop;
 
 import com.alibaba.fastjson.JSON;
-import com.mine.warriorsservercommon.entity.LogServlet;
-import com.mine.warriorsservercommon.service.ILogServletRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -19,9 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 @Slf4j
 public class LogAspect {
-
-    @Autowired
-    private ILogServletRepository iLogServletRepository;
 
     @Pointcut("execution(* com.mine.*.web.*Controller.*(..))")
     public void pointcut() {
@@ -35,7 +28,7 @@ public class LogAspect {
 //        log.info("[···方法环绕···]--start...↓");
 //        boolean exception = false;
 //        String JsonRet = "void";
-//        GlobalVO ret = new GlobalVO();
+//        ResultVO ret = new ResultVO();
 //        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 //        HttpServletRequest request = attributes.getRequest();
 //        log.info("REQUEST_URL : " + request.getRequestURL().toString());
@@ -82,16 +75,6 @@ public class LogAspect {
         log.info("REQUEST_URI : " + request.getRequestURI());
         log.info("REQUEST_ARGS[] : " + JSON.toJSONString(joinPoint.getArgs()));
         log.info("JAVA_CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-
-        LogServlet logServlet = new LogServlet();
-        logServlet.setCookieValue(request.getCookies()[0].getValue());
-        logServlet.setRequestMethod(request.getMethod());
-        logServlet.setRequestIp(request.getRemoteAddr());
-        logServlet.setRequestPort(request.getServerPort());
-        logServlet.setRequestUri(request.getRequestURI());
-        logServlet.setJavaClassMethod(joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logServlet.setRequestArgs(JSON.toJSONString(joinPoint.getArgs()));
-        iLogServletRepository.insertLogServlet(logServlet);
     }
 
     /**
@@ -109,12 +92,6 @@ public class LogAspect {
         if (!ObjectUtils.isEmpty(ret)) JsonRet = JSON.toJSONString(ret);
 //        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue().toString());
         log.info("RESPONSE_ARG : " + JsonRet);
-        LogServlet logServlet = new LogServlet();
-        logServlet.setCookieValue(request.getCookies()[0].getValue());
-        LogServlet retLogServlet = iLogServletRepository.selectLogServlet(logServlet);
-        BeanUtils.copyProperties(retLogServlet,logServlet);
-        logServlet.setResponseArg(JsonRet);
-        iLogServletRepository.updateLogServlet(logServlet);
     }
 
     /**
@@ -128,12 +105,6 @@ public class LogAspect {
         HttpServletRequest request = attributes.getRequest();
         System.out.println("异常通知start...");
 //        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue().toString());
-        LogServlet logServlet = new LogServlet();
-        logServlet.setCookieValue(request.getCookies()[0].getValue());
-        LogServlet retLogServlet = iLogServletRepository.selectLogServlet(logServlet);
-        BeanUtils.copyProperties(retLogServlet,logServlet);
-        logServlet.setExceptionFlag(1);
-        iLogServletRepository.updateLogServlet(logServlet);
     }
 
     /**

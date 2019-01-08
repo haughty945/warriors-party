@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ApiModel(value = "公共DTO", description = "公共DTO")
-public class GlobalDTO {
+public class BaseDTO {
 
     @ApiModelProperty(value = "当前页")
     private int current = 1;

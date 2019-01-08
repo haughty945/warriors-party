@@ -1,5 +1,8 @@
 package ${package.ServiceImpl};
 
+import com.mine.warriorsservercommon.pojo.ResultVO;
+import com.mine.warriorsservercommon.utils.BeanCopyUtil;
+import com.mine.warriorsservercommon.utils.ResultVOUtil;
 import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
@@ -11,12 +14,8 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.mine.${package.ModuleName}.common.ResultVO;
 import com.mine.${package.ModuleName}.dto.${entity}DTO;
 import com.mine.${package.ModuleName}.vo.${entity}VO;
-import com.mine.${package.ModuleName}.util.BeanCopyUtil;
-import com.mine.${package.ModuleName}.util.ResultVOUtil;
-
 
 /**
  * @Author : ${author}
