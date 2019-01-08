@@ -2,5 +2,5 @@ server:
   port: 8006
 logging:
   config: classpath:./logback-spring.xml
-  path: D:/nmyslog/nmys
+  path: D:/warriors-party/log/warriors-server-logback
 

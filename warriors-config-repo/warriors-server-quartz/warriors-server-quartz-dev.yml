@@ -39,3 +39,5 @@ logging:
       mine:
         warriorsserverquartz:
           mapper: debug
+  config: classpath:./logback-spring.xml
+  path: D:/warriors-party/log/${spring.application.name}
