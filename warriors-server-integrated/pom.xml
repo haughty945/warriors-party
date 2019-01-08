@@ -17,6 +17,8 @@
     <description>集成其他组件</description>
 
     <modules>
+        <module>warriors-server-feign</module>
+        <module>warriors-server-ribbon</module>
         <module>warriors-server-mybatis-plus</module>
         <module>warriors-server-rabbitMQ</module>
         <module>warriors-server-redis</module>

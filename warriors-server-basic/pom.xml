@@ -20,8 +20,6 @@
     <modules>
         <module>warriors-eureka-center</module>
         <module>warriors-config-center</module>
-        <module>warriors-ribbon-demo</module>
-        <module>warriors-feign-demo</module>
         <module>warriors-gate-way</module>
     </modules>
 

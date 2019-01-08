@@ -1,0 +1,13 @@
+server:
+  port: 8101
+
+spring:
+  application:
+    name: warriors-server-ribbon
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@127.0.0.1:8000/eureka/
