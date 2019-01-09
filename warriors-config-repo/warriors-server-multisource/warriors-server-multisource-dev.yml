@@ -20,16 +20,24 @@ spring:
     name: warriors-server-multisource  # 唯一的服务名称或者也可以称为ID
   # MySql
   datasource:
-    first:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: root
-      password: root
-    second:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/warriors-party?useUnicode=true&characterEncoding=utf-8&useSSL=false
-      username: root
-      password: root
+    driver-class-name: ${spring.datasource.multisource.first.driver-class-name}
+    url: ${spring.datasource.multisource.first.url}
+    username: ${spring.datasource.multisource.first.username}
+    password: ${spring.datasource.multisource.first.password}
+    # 多数据源start #
+    multisource:
+      first:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: root
+      second:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/warriors-party?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: root
+    # 多数据源end #
+
   #rabbitmq
   rabbitmq:
     host: 127.0.0.1
