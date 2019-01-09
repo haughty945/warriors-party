@@ -1,8 +1,8 @@
 package com.mine.warriorsservermultisource.web;
 
-import com.mine.warriorsservermultisource.entity.SysUser;
-import com.mine.warriorsservermultisource.mapper.first.FirstSysUserMapper;
-import com.mine.warriorsservermultisource.mapper.second.SecondSysUserMapper;
+//import com.mine.warriorsservermultisource.mapper.first.FirstSysUserMapper;
+//import com.mine.warriorsservermultisource.mapper.second.SysUserMapper;
+import com.mine.warriorsservermultisource.mapper.SysUserMapper;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,20 +21,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sysUser")
 public class SysUserController {
 
-    @Autowired
-    private FirstSysUserMapper firstSysUserMapper;
+//    @Autowired
+//    private FirstSysUserMapper firstSysUserMapper;
 
     @Autowired
-    private SecondSysUserMapper secondSysUserMapper;
+    private SysUserMapper sysUserMapper;
 
-    @RequestMapping(value = "/queryAll1", method = RequestMethod.POST)
-    public Object deleteSysUser1() {
-        return firstSysUserMapper.queryAll();
-    }
+//    @RequestMapping(value = "/queryAll1", method = RequestMethod.POST)
+//    public Object deleteSysUser1() {
+//        return firstSysUserMapper.queryAll();
+//    }
 
     @RequestMapping(value = "/queryAll2", method = RequestMethod.POST)
     public Object deleteSysUser2() {
-        return secondSysUserMapper.queryAll();
+        return sysUserMapper.queryAll();
     }
 }
 

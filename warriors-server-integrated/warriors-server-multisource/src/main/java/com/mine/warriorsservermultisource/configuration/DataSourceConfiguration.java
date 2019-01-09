@@ -15,27 +15,26 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-
 @Configuration
-@MapperScan(basePackages = "com.mine.warriorsservermultisource.mapper.first", sqlSessionTemplateRef  = "firstSqlSessionTemplate")
-public class FirstDataSourceConfiguration {
+@MapperScan(basePackages = "com.mine.warriorsservermultisource.mapper", sqlSessionTemplateRef = "SqlSessionTemplate")
+public class DataSourceConfiguration {
 
-	@Value("${spring.datasource.first.driver-class-name}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
-    @Value("${spring.datasource.first.url}")
+    @Value("${spring.datasource.url}")
     private String url;
 
-    @Value("${spring.datasource.first.username}")
+    @Value("${spring.datasource.username}")
     private String username;
 
-    @Value("${spring.datasource.first.password}")
+    @Value("${spring.datasource.password}")
     private String password;
-	
-    @Bean(name = "firstDataSource")
+
+    @Bean(name = "DataSource")
     @Primary
     public DataSource dataSource() {
-    	DruidDataSource dataSource = new DruidDataSource();
+        DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(this.driverClassName);
         dataSource.setUrl(this.url);
         dataSource.setUsername(this.username);
@@ -43,24 +42,24 @@ public class FirstDataSourceConfiguration {
         return dataSource;
     }
 
-    @Bean(name = "firstSqlSessionFactory")
+    @Bean(name = "SqlSessionFactory")
     @Primary
-    public SqlSessionFactory sqlSessionFactory(@Qualifier("firstDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("DataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
-        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/first/First*Mapper.xml"));
+        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:mapper//*Mapper.xml"));
         return bean.getObject();
     }
 
-    @Bean(name = "firstTransactionManager")
+    @Bean(name = "TransactionManager")
     @Primary
-    public DataSourceTransactionManager transactionManager(@Qualifier("firstDataSource") DataSource dataSource) {
+    public DataSourceTransactionManager transactionManager(@Qualifier("DataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean(name = "firstSqlSessionTemplate")
+    @Bean(name = "SqlSessionTemplate")
     @Primary
-    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("firstSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sqlSessionTemplate(@Qualifier("SqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 

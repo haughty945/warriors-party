@@ -21,6 +21,7 @@
         <module>warriors-eureka-center</module>
         <module>warriors-config-center</module>
         <module>warriors-gate-way</module>
+        <module>warriors-monitor-admin</module>
     </modules>
 
 </project>

@@ -1,11 +1,10 @@
-package com.mine.warriorsservermultisource.mapper.first;
-
+package com.mine.warriorsservermultisource.mapper;
 
 import com.mine.warriorsservermultisource.entity.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface FirstSysUserMapper {
+public interface SysUserMapper {
 
     public SysUser queryAll();
 }
