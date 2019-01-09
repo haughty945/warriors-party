@@ -14,7 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>warriors-server-common</name>
-    <description>Demo project for Spring Boot</description>
+    <description>公共组件</description>
 
     <dependencies>
         <dependency>

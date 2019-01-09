@@ -7,6 +7,18 @@
     ·https://blog.csdn.net/qq_37170583/article/details/80704904
     
     springcloud ---Finchley.RELEASE和springboot 2.0.6似乎有一些小问题如果出现问题,请降低版本  Finchley.SR1和2.0.3
+ 
+## 打包说明:
+    
+    · 请不要再父工程上添加一下依赖
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+        因为这个SpringBoot插件会在Maven的package后进行二次打包，目的为了生成可执行jar包，如果父工程中定义了这个插件，会报错提示没有找到main函数。这时
+    你就可以去打包front项目了，当然打包的时候可能还是不行，这里还有一个小坑，如果还是不能进行打包的话，那么就install一下root项目，也就是总目录下
+    的pom文件对应的install操作，这样再打包front项目基本上就没有问题了，
+     
     
 ### springboot热部署参阅:
 

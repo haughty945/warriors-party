@@ -115,6 +115,7 @@
                 </configuration>
             </plugin>
             <!--<plugin>-->
+                <!--此插件会在Maven的package后进行二次打包，目的为了生成可执行jar包，聚合工程子工程会找不到父工程的包-->
                 <!--<groupId>org.springframework.boot</groupId>-->
                 <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
             <!--</plugin>-->
