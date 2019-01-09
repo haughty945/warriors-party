@@ -28,8 +28,12 @@ public class WarriorsMonitorAdminApplication {
     public static class SecurityPermitAllConfig extends WebSecurityConfigurerAdapter {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.authorizeRequests().anyRequest().permitAll()//
-                    .and().csrf().disable();
+            http.authorizeRequests()
+                    .anyRequest()
+                    .permitAll()
+                    .and()
+                    .csrf()
+                    .disable();
         }
     }
 
@@ -57,7 +61,6 @@ public class WarriorsMonitorAdminApplication {
                     .logout().logoutUrl(adminContextPath + "/logout").and()
                     .httpBasic().and()
                     .csrf().disable();
-            // @formatter:on
         }
     }
 
