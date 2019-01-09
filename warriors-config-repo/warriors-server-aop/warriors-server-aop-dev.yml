@@ -19,7 +19,8 @@ spring:
   # 监控
   boot:
     admin:
-      url: http://localhost:8100
+      client:
+        url: http://localhost:8100
   application:
     name: warriors-server-aop  # 唯一的服务名称或者也可以称为ID
   #rabbitmq
