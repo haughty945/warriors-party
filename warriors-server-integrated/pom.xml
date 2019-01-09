@@ -9,6 +9,7 @@
         <artifactId>warriors-party</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+
     <groupId>com.mine</groupId>
     <artifactId>warriors-server-integrated</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -32,6 +33,7 @@
         <module>warriors-server-async</module>
         <module>warriors-server-websocket</module>
         <module>warriors-server-aop</module>
+        <module>warriors-server-elasticsearch</module>
     </modules>
 
     <dependencies>
