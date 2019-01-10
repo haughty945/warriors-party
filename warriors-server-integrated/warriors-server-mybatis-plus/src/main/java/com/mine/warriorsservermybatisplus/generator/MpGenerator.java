@@ -34,9 +34,9 @@ public class MpGenerator {
     /**
      *  Project config
      */
-    private static String projectDir = "D:\\workspace\\my\\_java\\warriors-party\\warriors-server-integrated\\warriors-server-mybatis-plus";
+    private static String projectDir = "D:\\workspace\\GitHub\\warriors-party\\warriors-server-integrated\\warriors-server-dynamic-datasource";
     private static String parent = "com.mine";
-    private static String moduleName = "warriorsservermybatisplus";
+    private static String moduleName = "warriorsserverdynamicdatasource";
     private static String author = "mine_lee";
 
     /**
