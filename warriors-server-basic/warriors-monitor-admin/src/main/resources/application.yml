@@ -24,11 +24,11 @@ management:
 
 #spring全家桶
 spring:
+  application:
+    name: warriors-monitor-admin  # 唯一的服务名称或者也可以称为ID
   profiles:
     active:
       - secure
-  application:
-    name: warriors-monitor-admin  # 唯一的服务名称或者也可以称为ID
   # 监控
   boot:
     admin:
@@ -36,20 +36,23 @@ spring:
         instance:
           service-url: http://127.0.0.1:${server.port}
         url: http://127.0.0.1:8100
-
 ---
+
 spring:
   profiles: insecure
 
 ---
+# 监控认证
 spring:
   profiles: secure
   security:
     user:
-      name: "eureka"
-      password: "eureka"
+      name: eureka
+      password: eureka
+
+# 端点认证
 eureka:
   instance:
     metadata-map:
-      user.name: "eureka"         #These two are needed so that the server
-      user.password: "eureka"     #can access the protected client endpoints
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}

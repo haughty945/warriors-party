@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>com.mine</groupId>
-        <artifactId>warriors-server-integrated</artifactId>
+        <artifactId>warriors-server-basic</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
