@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Enumeration;
 
 @Component
 @Slf4j
@@ -22,12 +21,13 @@ public class testFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         if (req.getRequestURI().contains("api")) {
-            log.info("请求 : " + req.getRequestURL() + "进入正在执行网关过滤器");
-            log.info("HEADER : " + JSON.toJSONString(req.getHeaderNames()));
-            log.info("IP : " + req.getRemoteAddr());
+            log.info("REQUEST_URL : " + req.getRequestURL() + "Gateway filtering in progress");
+            log.info("REQUEST_HEADER : " + JSON.toJSONString(req.getHeaderNames()));
+            log.info("REQUEST_METHOD : " + req.getMethod());
+            log.info("REQUEST_IP : " + req.getRemoteAddr());
             log.info("REQUEST_PORT : " + req.getServerPort());
-            log.info("URI : " + req.getRequestURI());
-            log.info("PARAM : " + JSON.toJSONString(req.getParameterMap()));
+            log.info("REQUEST_URI : " + req.getRequestURI());
+            log.info("REQUEST_PARAM : " + JSON.toJSONString(req.getParameterMap()));
         }
         filterChain.doFilter(servletRequest,servletResponse);
     }
