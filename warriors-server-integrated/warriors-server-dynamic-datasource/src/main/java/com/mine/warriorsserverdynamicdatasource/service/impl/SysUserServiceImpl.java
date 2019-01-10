@@ -20,6 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @Author : mine_lee
  * @Date : 2019-01-10
  * @Remark :【用户】实现层
+ *
+ * @DS 注解可以配置数据源，
+ * 可以加在方法上也可以加在类上。方法上的会覆盖类上的配置。也可以加在mapper类上，但是不建议
  */
 @Slf4j
 @Transactional

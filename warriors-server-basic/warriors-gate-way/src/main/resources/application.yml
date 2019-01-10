@@ -22,15 +22,15 @@ management:
         include: "*"
 
 zuul:
-  prefix: /api
-  routes:
-    warriors-server-rabbitMQ:
-      path: /warriors-server-rabbitMQ/**
-      serviceId: warriors-server-rabbitMQ
-    warriors-server-mybatis-plus:
-      path: /warriors-server-mybatis-plus/**
-      serviceId: warriors-server-mybatis-plus
+  prefix: /api    # 配置统一的前缀
+#  routes:
+#    warriors-server-rabbitMQ:
+#      path: /warriors-server-rabbitMQ/**
+#      serviceId: warriors-server-rabbitMQ
+#    warriors-server-mybatis-plus:
+#      path: /warriors-server-mybatis-plus/**
+#      serviceId: warriors-server-mybatis-plus
 
 logging:
-  config: classpath:./logback-spring.xml
+  config: classpath:logback-spring.xml
   path: D:/warriors-gateway-zuul/log

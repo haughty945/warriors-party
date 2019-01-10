@@ -36,6 +36,11 @@ spring:
         instance:
           service-url: http://127.0.0.1:${server.port}
         url: http://127.0.0.1:8100
+#    route:
+#      endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,activiti,hystrix.stream
+#    turbine:
+#      clusters: default
+#      location: warriors-monitor-turbine
 ---
 
 spring:

@@ -17,7 +17,7 @@ public class HiController {
     private HiService hiService;
 
     @RequestMapping("hi")
-    public String hi() {
+    public Object hi() {
         return hiService.hi();
     }
 }

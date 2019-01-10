@@ -1,24 +1,17 @@
 server:
   port: 8200
 
-#»ùÓÚEurekaµÄ×¢²áÖĞĞÄ
+#åŸºäºEurekaçš„æ³¨å†Œä¸­å¿ƒ
 eureka:
   instance:
-    #    ip-address: 127.0.0.1                       # Ö¸¶¨IPµØÖ·£¬È±Ê¡¶ÁÈ¡±¾»úIPv4µØÖ·£¨ÎŞÂÛ·şÎñÖĞĞÄÊÇÔÚ¹«Íø£¬»¹ÊÇÔÚÄÚÍø£©
-    prefer-ip-address: true                     # Ê¹ÓÃIP×¢²á£¨Ä¬ÈÏ¹Ø±ÕÈ±Ê¡ÖµÎª»úÆ÷Ãû£©
+    #    ip-address: 127.0.0.1                       # æŒ‡å®šIPåœ°å€ï¼Œç¼ºçœè¯»å–æœ¬æœºIPv4åœ°å€ï¼ˆæ— è®ºæœåŠ¡ä¸­å¿ƒæ˜¯åœ¨å…¬ç½‘ï¼Œè¿˜æ˜¯åœ¨å†…ç½‘ï¼‰
+    prefer-ip-address: true                     # ä½¿ç”¨IPæ³¨å†Œï¼ˆé»˜è®¤å…³é—­ç¼ºçœå€¼ä¸ºæœºå™¨åï¼‰
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 1        # ·şÎñĞøÔ¼ÖÜÆÚ£¬È±Ê¡ÖµÎª30s
-    lease-expiration-duration-in-seconds: 1     # ·şÎñÊ§Ğ§Ê±¼ä£¬È±Ê¡ÖµÎª90s
+    lease-renewal-interval-in-seconds: 1        # æœåŠ¡ç»­çº¦å‘¨æœŸï¼Œç¼ºçœå€¼ä¸º30s
+    lease-expiration-duration-in-seconds: 1     # æœåŠ¡å¤±æ•ˆæ—¶é—´ï¼Œç¼ºçœå€¼ä¸º90s
   client:
     serviceUrl:
       defaultZone: http://eureka:eureka@127.0.0.1:8000/eureka/
-
-turbine:
-  aggregator:
-    clusterConfig: default            # Ö¸¶¨¾ÛºÏÄÄĞ©¼¯Èº£¬¶à¸öÊ¹ÓÃ","·Ö¸î£¬Ä¬ÈÏÎªdefault¡£
-  appConfig: warriors-server-feign    # ÅäÖÃEurekaÖĞµÄserviceIdÁĞ±í£¬±íÃ÷¼à¿ØÄÄĞ©·şÎñ
-  clusterNameExpression: default
-
 
 management:
   endpoints:
@@ -29,7 +22,25 @@ management:
     health:
       show-details: ALWAYS
 
-#springÈ«¼ÒÍ°
+#springå…¨å®¶æ¡¶
 spring:
   application:
-    name: warriors-monitor-turbine  # Î¨Ò»µÄ·şÎñÃû³Æ»òÕßÒ²¿ÉÒÔ³ÆÎªID
+    name: warriors-monitor-turbine  # å”¯ä¸€çš„æœåŠ¡åç§°æˆ–è€…ä¹Ÿå¯ä»¥ç§°ä¸ºID
+#  boot:
+#    route:
+#      endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,activiti,hystrix.stream
+#    turbine:
+#      clusters: default
+#      location: warriors-monitor-turbine
+  security:
+    basic:
+      enabled: false
+
+turbine:
+  aggregator:
+    clusterConfig: default   # æŒ‡å®šèšåˆå“ªäº›é›†ç¾¤ï¼Œå¤šä¸ªä½¿ç”¨","åˆ†å‰²ï¼Œé»˜è®¤ä¸ºdefaultã€‚å¯ä½¿ç”¨http://.../turbine.stream?cluster={clusterConfigä¹‹ä¸€}è®¿é—®
+  appConfig: warriors-server-aop,warriors-monitor-turbine,warriors-server-ribbon,warriors-server-feign    # é…ç½®Eurekaä¸­çš„serviceIdåˆ—è¡¨ï¼Œè¡¨æ˜ç›‘æ§å“ªäº›æœåŠ¡
+  clusterNameExpression: new String("default")
+  # 1. clusterNameExpressionæŒ‡å®šé›†ç¾¤åç§°ï¼Œé»˜è®¤è¡¨è¾¾å¼appNameï¼›æ­¤æ—¶ï¼šturbine.aggregator.clusterConfigéœ€è¦é…ç½®æƒ³è¦ç›‘æ§çš„åº”ç”¨åç§°
+  # 2. å½“clusterNameExpression: defaultæ—¶ï¼Œturbine.aggregator.clusterConfigå¯ä»¥ä¸å†™ï¼Œå› ä¸ºé»˜è®¤å°±æ˜¯default
+  # 3. å½“clusterNameExpression: metadata['cluster']æ—¶ï¼Œå‡è®¾æƒ³è¦ç›‘æ§çš„åº”ç”¨é…ç½®äº†eureka.instance.metadata-map.cluster: ABCï¼Œåˆ™éœ€è¦é…ç½®ï¼ŒåŒæ—¶turbine.aggregator.clusterConfig: ABC

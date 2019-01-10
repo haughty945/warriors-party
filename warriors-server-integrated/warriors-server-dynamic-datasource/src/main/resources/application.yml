@@ -77,4 +77,5 @@ logging:
       mine:
         warriorsserverdynamicdatasource:
           mapper: debug
+  path: D:/log/dynamic-datasoource
 

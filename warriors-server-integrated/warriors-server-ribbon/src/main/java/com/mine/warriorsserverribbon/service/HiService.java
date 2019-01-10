@@ -7,5 +7,5 @@ package com.mine.warriorsserverribbon.service;
  */
 public interface HiService {
 
-    public String hi();
+    public Object hi();
 }

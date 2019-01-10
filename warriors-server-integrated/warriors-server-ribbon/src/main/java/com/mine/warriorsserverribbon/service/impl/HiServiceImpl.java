@@ -20,12 +20,12 @@ public class HiServiceImpl implements HiService {
 
     @Override
     @HystrixCommand(fallbackMethod = "hiError")
-    public String hi() {
-        ResponseEntity<String> entity = restTemplate.getForEntity("http://WARRIORS-SERVER-ELEMENT/hi", String.class);
+    public Object hi() {
+        ResponseEntity<Object> entity = restTemplate.getForEntity("http://WARRIORS-SERVER-AOP/hello/test1", Object.class);
         return entity.getBody();
     }
 
-    public String hiError() {
+    public Object hiError() {
         return "目标服务宕机";
     }
 }
