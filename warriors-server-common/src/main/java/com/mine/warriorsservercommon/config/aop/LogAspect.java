@@ -68,7 +68,8 @@ public class LogAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 //        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue());
-        log.info("REQUEST_URL : " + request.getRequestURL().toString());
+        log.info("REQUEST_URL : " + request.getRequestURL());
+        log.info("REQUEST_HEADER : " + JSON.toJSONString(request.getHeaderNames()));
         log.info("REQUEST_METHOD : " + request.getMethod());
         log.info("REQUEST_IP : " + request.getRemoteAddr());
         log.info("REQUEST_PORT : " + request.getServerPort());

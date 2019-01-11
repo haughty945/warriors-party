@@ -2,6 +2,7 @@ package com.mine.warriorsserveraop.configuration;
 
 import com.mine.warriorsservercommon.config.aop.LogAspect;
 import com.mine.warriorsservercommon.config.exception.GlobalExceptionHandler;
+import com.mine.warriorsservercommon.config.filter.CrossFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,5 +17,10 @@ public class GlobalConfig {
     @Bean
     GlobalExceptionHandler globalExceptionHandler() {
         return new GlobalExceptionHandler();
+    }
+
+    @Bean
+    CrossFilter CrossFilter() {
+        return new CrossFilter();
     }
 }

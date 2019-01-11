@@ -30,7 +30,7 @@ zuul:
     warriors-server-rabbitMQ:
       path: /warriors-server-aop/**
       serviceId: warriors-server-aop
-      sensitiveHeaders: token   # 默认情况下，敏感的头信息无法经过API网关进行传递，我们可以通过如下配置使之可以传递
+#      sensitiveHeaders: sensitive   # 会过滤服务之间通信附带的headers(不向下传递)
 #    warriors-server-mybatis-plus:
 #      path: /warriors-server-mybatis-plus/**
 #      serviceId: warriors-server-mybatis-plus
