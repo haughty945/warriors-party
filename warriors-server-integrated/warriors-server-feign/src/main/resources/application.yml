@@ -1,6 +1,6 @@
 #服务端口
 server:
-  port: 8009
+  port: 8011
 
 #基于Eureka的注册中心
 eureka:
@@ -13,6 +13,17 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS    # 现实数据源以及磁盘使用的详情等
 
 #spring全家桶
 spring:

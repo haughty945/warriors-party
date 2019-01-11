@@ -23,12 +23,18 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.mine</groupId>
             <artifactId>warriors-server-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-
         <!-- druid阿里巴巴数据库连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>

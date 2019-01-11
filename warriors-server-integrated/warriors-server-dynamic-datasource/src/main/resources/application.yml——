@@ -16,8 +16,13 @@ eureka:
 
 #spring全家桶
 spring:
+  # 监控
+  boot:
+    admin:
+      client:
+        url: http://localhost:8100
   application:
-    name: warriors-server-dynamicdatasource  # 唯一的服务名称或者也可以称为ID
+    name: warriors-server-dynamic-datasource  # 唯一的服务名称或者也可以称为ID
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
@@ -78,4 +83,5 @@ logging:
         warriorsserverdynamicdatasource:
           mapper: debug
   path: D:/log/dynamic-datasoource
+  file: D:/log/dynamic-datasoource/spring.log
 
