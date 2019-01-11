@@ -1,5 +1,5 @@
 server:
-  port: 8007
+  port: 8011
 # spring全家桶
 spring:
   application:

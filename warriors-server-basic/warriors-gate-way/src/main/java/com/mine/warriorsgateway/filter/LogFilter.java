@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @Component
 @Slf4j
-public class testFilter implements Filter {
+public class LogFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -21,7 +21,7 @@ public class testFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         if (req.getRequestURI().contains("api")) {
-            log.info("REQUEST_URL : " + req.getRequestURL() + "Gateway filtering in progress");
+            log.info("REQUEST_URL : " + req.getRequestURL());
             log.info("REQUEST_HEADER : " + JSON.toJSONString(req.getHeaderNames()));
             log.info("REQUEST_METHOD : " + req.getMethod());
             log.info("REQUEST_IP : " + req.getRemoteAddr());

@@ -1,8 +1,10 @@
 package com.mine.warriorsserverribbon.service.impl;
 
+import com.mine.warriorsservercommon.utils.RestTemplateUtil;
 import com.mine.warriorsserverribbon.service.HiService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,12 +18,13 @@ import org.springframework.web.client.RestTemplate;
 public class HiServiceImpl implements HiService {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private RestTemplate restTemplateUtil;
 
     @Override
     @HystrixCommand(fallbackMethod = "hiError")
     public Object hi() {
-        ResponseEntity<Object> entity = restTemplate.getForEntity("http://WARRIORS-SERVER-AOP/hello/test1", Object.class);
+        String url = "http://WARRIORS-SERVER-AOP/hello/test1";
+        ResponseEntity<Object> entity = restTemplateUtil.exchange(url, HttpMethod.GET, null, Object.class);
         return entity.getBody();
     }
 

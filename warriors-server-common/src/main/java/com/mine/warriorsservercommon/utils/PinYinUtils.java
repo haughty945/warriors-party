@@ -118,10 +118,4 @@ public class PinYinUtils {
         return "" + (pinYinGroup.substring(0, pinYinGroup.length() - 1));
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(getFullPinYin(""));
-        System.out.println(getIndexPinYin("犇"));
-        System.out.println(getRootChar("犇"));
-    }
 }

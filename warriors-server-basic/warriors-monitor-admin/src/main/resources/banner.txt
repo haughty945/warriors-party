@@ -5,7 +5,7 @@ ${AnsiColor.BRIGHT_YELLOW}
   \ V  V /  | (_| | | |    | |    | | | (_) | | |    \__ \ |_____| | |_) | | (_| | | |    | |_  | |_| |
    \_/\_/    \__,_| |_|    |_|    |_|  \___/  |_|    |___/         | .__/   \__,_| |_|     \__|  \__, |
                                                                    |_|                           |___/
-注册中心 running...
+监控中心 running...
 
 :: Spring-Boot ::     ${spring-boot.formatted-version}
 
