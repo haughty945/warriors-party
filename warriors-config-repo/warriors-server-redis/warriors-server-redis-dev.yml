@@ -1,6 +1,6 @@
 #服务端口
 server:
-  port: 8004
+  port: 8007
 
 #基于Eureka的注册中心
 eureka:
@@ -12,7 +12,7 @@ eureka:
     lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8000/eureka/
+      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
 
 # spring全家桶
 spring:

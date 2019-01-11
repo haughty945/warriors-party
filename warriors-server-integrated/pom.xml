@@ -29,7 +29,6 @@
         <module>warriors-server-thymeleaf</module>
         <module>warriors-server-shiro</module>
         <module>warriors-server-jwt</module>
-        <module>warriors-server-multisource</module>
         <module>warriors-server-async</module>
         <module>warriors-server-websocket</module>
         <module>warriors-server-aop</module>
