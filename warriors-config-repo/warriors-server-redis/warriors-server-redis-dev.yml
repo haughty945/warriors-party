@@ -14,10 +14,24 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
 
+management:
+  security:
+    enabled: false  # 关闭框架刷新安全校验
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 监控端点全部暴露*在yaml 文件属于关键字，所以需要加引号
+  endpoint:
+    health:
+      show-details: ALWAYS # 心跳端点全部暴露
+
 # spring全家桶
 spring:
   application:
     name: warriors-server-redis
+  # bus消息总线配置刷新
+  bus:
+    enabled: true
   # rabbitmq
   rabbitmq:
     host: 127.0.0.1
@@ -29,28 +43,25 @@ spring:
     type: redis
   redis:
     database: 0
+#    host: 127.0.0.1
+#    port: 6379
     password:
     timaout: 2000
-    cluster:
-      nodes:
-        - 127.0.0.1:6379
-        - 127.0.0.1:6380
-        - 127.0.0.1:6381
-        - 127.0.0.1:6379
-        - 127.0.0.1:6380
-        - 127.0.0.1:6381
     jedis:
       pool:
         max-active: 10  # 连接池最大连接数（使用负值表示没有限制）
         max-idle: 8     # 连接池中的最大空闲连接
         min-idle: 2     # 连接池中的最小空闲连接
-        max-wait: 100   # 连接池最大阻塞等待时间（使用负值表示没有限制）
-    lettuce:
-      pool:
-        max-active: 10  # 连接池最大连接数（使用负值表示没有限制）
-        max-idle: 8     # 连接池中的最大空闲连接
-        min-idle: 2     # 连接池中的最小空闲连接
-        max-wait: 100   # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 100
+    cluster:
+      nodes:
+        - 127.0.0.1:6379
+#        - 127.0.0.1:6380
+#        - 127.0.0.1:6381
+#        - 127.0.0.1:6379
+#        - 127.0.0.1:6380
+#        - 127.0.0.1:6381
+
 # log输出级别
 logging:
   level:
