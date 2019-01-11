@@ -29,6 +29,9 @@ management:
 spring:
   application:
     name: warriors-server-aop  # 唯一的服务名称或者也可以称为ID
+  # bus消息总线配置刷新
+  bus:
+    enabled: true
   #rabbitmq
   rabbitmq:
     host: 127.0.0.1
