@@ -15,6 +15,6 @@ spring:
 
 # 此处的logging是为了配置监控中查看实时log :: file 必须做配置。否则监控中不会暴露logging节点
 logging:
-#  config: classpath:./logback-spring.xml_
+  config: classpath:logback-spring.xml
   path: D:/workspace/my/_java/log/warriors-server-aop
-  file: D:/workspace/my/_java/log/warriors-server-aop/spring.log
+  file: D:/workspace/my/_java/log/warriors-server-aop/console.log
