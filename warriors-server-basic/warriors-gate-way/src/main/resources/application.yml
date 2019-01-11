@@ -49,4 +49,5 @@ zuul:
 
 logging:
   config: classpath:./logback-spring.xml
-  path: D:/warriors-gateway-zuul/log
+  path: D:/workspace/my/_java/log/warriors-gateway-zuul
+  file: D:/workspace/my/_java/log/warriors-gateway-zuul/log_info.log

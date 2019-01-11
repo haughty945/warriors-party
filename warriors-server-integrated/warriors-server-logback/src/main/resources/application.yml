@@ -1,6 +1,7 @@
 server:
   port: 8006
 logging:
-  config: classpath:./logback-spring.xml
+  config: classpath:logback-spring.xml
   path: D:/warriors-party/log/warriors-server-logback
+  file: D:/warriors-party/log/warriors-server-logback/log_info.log
 
