@@ -1,8 +1,73 @@
+server:
+  port: 8764
+
+#基于Eureka的注册中心
+eureka:
+  instance:
+    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+#spring全家桶
+spring:
+  application:
+    name: warriors-monitor-admin  # 唯一的服务名称或者也可以称为ID
+  profiles:
+    active:
+      - secure
+  # 监控
+  boot:
+    admin:
+      client:
+        instance:
+          service-url: http://127.0.0.1:${server.port}
+        url: http://127.0.0.1:8100
+#    route:
+#      endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,activiti,hystrix.stream
+#    turbine:
+#      clusters: default
+#      location: warriors-monitor-turbine
+---
+
+spring:
+  profiles: insecure
+
+---
+# 监控认证
+spring:
+  profiles: secure
+  security:
+    user:
+      name: eureka
+      password: eureka
+
+# 端点认证
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+
+----
+
 package com.mine.warriorsmonitoradmin.configuration;
 
 import de.codecentric.boot.admin.server.config.AdminServerProperties;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,7 +75,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
 @Configuration
-public class WebSecurity {
+public class WebSecurityConfig {
 
     @Profile("insecure")
     @Configuration
@@ -26,6 +91,9 @@ public class WebSecurity {
         }
     }
 
+    /**
+     * 登陆的UI页面
+     */
     @Profile("secure")
     @Configuration
     public static class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
@@ -63,3 +131,5 @@ public class WebSecurity {
     }
 
 }
+
+
