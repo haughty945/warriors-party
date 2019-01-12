@@ -18,7 +18,7 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
     lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
-    #    matedata-map 中的name 和 password 必须配置为security一致 否则监控本身的心跳是 DOWN
+    # matedata-map中的user.name 和 user.password 必须配置且必须与security一致 否则监控本身的心跳是 DOWN
     metadata-map:
       user:
         name: ${spring.security.user.name}
@@ -38,3 +38,15 @@ management:
     health:
       show-details: ALWAYS
 
+info:
+  maven:
+    name: @project.artifactId@
+    version: @project.version@
+    description: @project.description@
+  author: mine-lee
+#  blog: https://blog.csdn.net/qq_25582683
+
+logging:
+  config: classpath:./logback-spring.xml
+  path: D:/workspace/my/_java/log/warriors-monitor-admin
+  file: D:/workspace/my/_java/log/warriors-monitor-admin/console.log

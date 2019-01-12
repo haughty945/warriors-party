@@ -20,7 +20,7 @@
     <modules>
         <module>warriors-eureka-center</module>
         <module>warriors-config-center</module>
-        <module>warriors-gate-way</module>
+        <module>warriors-gateway-zuul</module>
         <module>warriors-monitor-admin</module>
         <module>warriors-monitor-turbine</module>
     </modules>

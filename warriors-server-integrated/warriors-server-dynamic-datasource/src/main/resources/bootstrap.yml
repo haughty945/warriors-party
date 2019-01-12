@@ -25,5 +25,5 @@ management:
 
 logging:
 #  config: classpath:./logback-spring.xml_
-  path: D:/workspace/my/_java/log/warriors-server-aop
-  file: D:/workspace/my/_java/log/warriors-server-aop/spring.log
+  path: D:/workspace/my/_java/log/warriors-server-dynamic-datasource
+  file: D:/workspace/my/_java/log/warriors-server-dynamic-datasource/console.log

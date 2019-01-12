@@ -9,10 +9,10 @@
     </parent>
 
     <groupId>com.mine</groupId>
-    <artifactId>warriors-gate-way</artifactId>
+    <artifactId>warriors-gateway-zuul</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>warriors-gate-way</name>
+    <name>warriors-gateway-zuul</name>
     <description>服务网关</description>
 
     <dependencies>
