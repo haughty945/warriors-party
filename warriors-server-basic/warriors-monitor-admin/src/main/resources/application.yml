@@ -44,7 +44,7 @@ info:
     version: @project.version@
     description: @project.description@
   author: mine-lee
-#  blog: https://blog.csdn.net/qq_25582683
+  blog: https://mine-lee.github.io/warriors-party/
 
 logging:
   config: classpath:./logback-spring.xml
