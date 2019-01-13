@@ -61,18 +61,6 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
 
-info:
-  project:
-    name: @project.artifactId@
-    version: @project.version@
-    description: @project.description@
-  spring:
-    boot.version: @spring-boot.version@
-    cloud.version: @spring-cloud.version@
-  author: mine-lee
-  swagger: http://${spring.cloud.client.ip-address}:${server.port}/swagger-ui.html
-  blog: https://mine-lee.github.io/warriors-party/
-
 #sql输出级别
 logging:
   level:
