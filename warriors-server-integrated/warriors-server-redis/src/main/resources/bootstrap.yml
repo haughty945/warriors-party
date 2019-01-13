@@ -12,3 +12,8 @@ spring:
         serviceId: warriors-config-center
       label: master
       profile: dev
+
+logging:
+  config: classpath:logback-spring.xml
+  path: D:/workspace/my/_java/log/warriors-server-redis
+  file: D:/workspace/my/_java/log/warriors-server-redis/console.log
