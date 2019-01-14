@@ -38,7 +38,7 @@ public class GlobalExceptionHandler implements ErrorController {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public ResultVO ServletException(HttpServletRequest request, Exception e) throws Exception {
+    public ResultVO ServletException(HttpServletRequest request, Exception e) {
         log.error("EXCEPTION_INTERCEPT" + " [ " + request.getRequestURI() + " ] " + "接口出现错误 , " + e.getMessage());
         ResultVO ret = new ResultVO();
         if (e instanceof HttpRequestMethodNotSupportedException) {
@@ -50,8 +50,8 @@ public class GlobalExceptionHandler implements ErrorController {
         } else {
             ret.setCode(500);
             ret.setMsg("服务器内部异常");
+            e.printStackTrace();
         }
-        e.printStackTrace();
         return ret;
     }
 }

@@ -16,7 +16,7 @@ public class ResultVO<T> implements Serializable {
     private int code = 200;
 
     @ApiModelProperty(value = "返回错误信息描述", example = "SUCCESS")
-    private String msg = "SUCCESS";
+    private String msg = "success";
 
     @ApiModelProperty(value = "返回对象数据", example = "返回对象数据")
     private T data = null;
