@@ -17,6 +17,5 @@ public class WarriorsServerAsyncApplication {
     public static void main(String[] args) {
         SpringApplication.run(WarriorsServerAsyncApplication.class, args);
     }
-
 }
 
