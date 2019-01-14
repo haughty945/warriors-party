@@ -1,3 +1,8 @@
+spring:
+  application:
+    name: warriors-config-center
+
+---
 server:
   port: 8762
 
@@ -5,15 +10,19 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 2        # 服务续约周期，默认为30秒
-    lease-expiration-duration-in-seconds: 3     # 服务失效时间，默认值90秒
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，默认为30秒
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，默认值90秒
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+#      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8761/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@peer2:8881/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@peer3:8881/eureka/
 
 spring:
-  application:
-    name: warriors-config-center
+  profiles: peer1
+  security:
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
   cloud:
     config:
       label: master
@@ -24,6 +33,66 @@ spring:
           username:
           password:
 
+---
+server:
+  port: 8888
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，默认为30秒
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，默认值90秒
+  client:
+    serviceUrl:
+#      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8761/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@peer2:8881/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@peer3:8881/eureka/
+
+spring:
+  profiles: peer2
+  security:
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/mine-lee/warriors-party.git
+          search-paths: warriors-config-repo/*
+          username:
+          password:
+---
+server:
+  port: 8889
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，默认为30秒
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，默认值90秒
+  client:
+    serviceUrl:
+#      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8761/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@peer2:8881/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@peer3:8881/eureka/
+
+spring:
+  profiles: peer3
+  security:
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/mine-lee/warriors-party.git
+          search-paths: warriors-config-repo/*
+          username:
+          password:
 
 
 
