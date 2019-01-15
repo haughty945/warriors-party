@@ -30,7 +30,6 @@ eureka:
     fetchRegistry: false                  # 表示不去检索其他的服务
     serviceUrl:
 #      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.ip-address}:${server.port}/eureka
-      defaultZone: http://${eureka.instance.ip-address}:${server.port}/eureka/
 
 
 

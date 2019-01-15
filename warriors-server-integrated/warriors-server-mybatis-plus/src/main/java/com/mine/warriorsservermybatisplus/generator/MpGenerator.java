@@ -13,17 +13,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
- * <p>
- * 代码生成器演示
- * </p>
+ * @program: warriors-party
+ * @description: 代码生成器
+ * @author: Mine.Lee
+ * @create: 2019-11-15 20:45
+ * @version: v1.0
  */
 public class MpGenerator {
 
     /**
-     *  DataSource config
-     *      tableNames : {多个表用逗号分隔}
+     * DataSource config
+     * tableNames : {多个表用逗号分隔}
      */
     private static String dateSourceUrl = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false";
     private static String dataSourceUserName = "root";
@@ -32,15 +33,15 @@ public class MpGenerator {
     private static String[] tableNames = {"sys_user"};
 
     /**
-     *  Project config
+     * Project config
      */
-    private static String projectDir = "D:\\workspace\\GitHub\\warriors-party\\warriors-server-integrated\\warriors-server-dynamic-datasource";
+    private static String projectDir = "D:\\workspace\\my\\_java\\warriors-party\\warriors-server-integrated\\warriors-server-mybatis-plus";
     private static String parent = "com.mine";
-    private static String moduleName = "warriorsserverdynamicdatasource";
-    private static String author = "mine_lee";
+    private static String moduleName = "warriorsservermybatisplus";
+    private static String author = "Mine.Lee";
 
     /**
-     *  下面是一些可选的配置
+     * 下面是一些可选的配置
      */
     private static String mapperTemplatePath = "/templates/mapper.xml.vm";
     private static String dtoTemplatePath = "/templates/dto.java.vm";
@@ -52,7 +53,7 @@ public class MpGenerator {
     private static ITypeConvert iTypeConvert = new MySqlTypeConvert();
     private static NamingStrategy tableStrategy = NamingStrategy.underline_to_camel;     // 表名生成策略
 
-    private static String frameDir = parent.replace(".","/");
+    private static String frameDir = parent.replace(".", "/");
     private static String rootDir = projectDir + "/src/main/";
     private static String dtoDir = rootDir + "java/" + frameDir + "/" + moduleName + "/dto/";
     private static String voDir = rootDir + "java/" + frameDir + "/" + moduleName + "/vo/";

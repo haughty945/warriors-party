@@ -1,6 +1,6 @@
 #服务端口
-server:
-  port: 8004
+#server:
+#  port: 8004
 
 #基于Eureka的注册中心
 eureka:
@@ -12,24 +12,65 @@ eureka:
     lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/
 
 #spring全家桶
 spring:
   application:
     name: warriors-server-mybatis-plus  # 唯一的服务名称或者也可以称为ID
+  security:
+    basic:
+      enabled: false
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
   #数据库连接
+  #  单数据源配置方式
+  #  datasource:
+  #    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+  #    username: root
+  #    password: root
+  #    driver-class-name: com.mysql.jdbc.Driver
+  #  多数据源配置
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      datasource:
+        master:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/warriors
+        slave_1:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/test
+        slave_2:
+          username: root
+          password: root
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/test1
+
   #rabbitmq
   rabbitmq:
     host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 #mybatis-plus
 mybatis-plus:
@@ -60,7 +101,6 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
-
 #sql输出级别
 logging:
   level:

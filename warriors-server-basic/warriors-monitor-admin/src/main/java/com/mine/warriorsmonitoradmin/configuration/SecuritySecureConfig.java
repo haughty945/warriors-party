@@ -14,6 +14,13 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @Program: warriors-party
+ * @Description: 监控服务认证配置
+ * @Author: Mine.Lee
+ * @Create: 2018-12-15 18:42
+ * @Version: v1.0
+ */
 @Configuration
 public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
 

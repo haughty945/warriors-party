@@ -6,26 +6,42 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 /**
- * 跨域过滤器
+ * @program: warriors-party
+ * @description: 跨域过滤器
+ * @author: Mine.Lee
+ * @create: 2019-01-15 19:52
+ * @version: v1.0
  */
 @Component
 public class CrossFilter implements Filter {
 
+    /**
+     * @param filterConfig
+     * @return void
+     * @throws ..
+     * @description 初始化过滤器
+     * @remark ..在项目启动时执行
+     * @author Mine.Lee
+     * @create 2019/1/15 20:07
+     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
 
     /**
-     *
-     * header中需要传进更多属性请配置Access-Control-Allow-Headers的value
-     *
      * @param servletRequest
      * @param servletResponse
      * @param filterChain
+     * @return void
      * @throws IOException
      * @throws ServletException
+     * @description 进行过滤处理
+     * @remark header中需要传进更多属性请配置Access-Control-Allow-Headers的value
+     * @author Mine.Lee
+     * @create 2019/1/15 20:07
      */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -38,6 +54,15 @@ public class CrossFilter implements Filter {
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
+    /**
+     * @param
+     * @return void
+     * @throws ..
+     * @description 销毁过滤器
+     * @remark 项目stop执行
+     * @author Mine.Lee
+     * @create 2019/1/15 20:09
+     */
     @Override
     public void destroy() {
 

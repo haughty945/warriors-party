@@ -5,14 +5,20 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * @program: pluto-program
- * @description: 配置security的csrf检验为false
+ * @Program: warriors-party
+ * @Description: 安全认证配置 --- 关闭crsf 否则注册不进来
+ * @Author: Mine.Lee
+ * @Create: 2019-01-15 18:38
+ * @Version: v1.0
  */
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+                .csrf()
+                .disable()
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()

@@ -3,6 +3,7 @@ package com.mine.warriorsservercommon.config.aop;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -11,20 +12,42 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * @program: warriors-party
+ * @description: 记录日志Aspect
+ * @author: Mine.Lee
+ * @create: 2019-01-15 19:52
+ * @version: v1.0
+ */
 @Aspect
 @Component
 @Slf4j
 public class LogAspect {
 
-    @Pointcut("execution(* com.mine.*.web.*Controller.*(..))")
+    /**
+     * @param
+     * @return void
+     * @description 定义切入点
+     * @remark 配置切面表达式 ( *为通配符:[0]返回值 [1]层级包 [2]web包下的所有类 [3] 所有方法 后边括号的俩点为任意参数类型,任意参数个数)
+     * @author Mine.Lee
+     * @create 2019/1/15 19:34
+     */
+    @Pointcut("execution(* com.mine.*.web.*.*(..))")
     public void pointcut() {
     }
 
     /**
-     * 环绕通知,环绕增强，相当于MethodInterceptor
+     * @param joinPoint
+     * @return java.lang.Object
+     * @throws Throwable
+     * @description 环绕通知
+     * @remark 环绕增强，相当于MethodInterceptor
+     * @author Mine.Lee
+     * @create 2019/1/15 19:33
      */
-//    @Around("pointcut()")
-//    public Object arround(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("pointcut()")
+    public Object arround(ProceedingJoinPoint joinPoint) throws Throwable {
+        return new Object();
 //        log.info("[···方法环绕···]--start...↓");
 //        boolean exception = false;
 //        String JsonRet = "void";
@@ -54,20 +77,23 @@ public class LogAspect {
 //            log.info("JAVA_CLASS_EXCEPTION : " + exception);
 //            log.info("[···方法环绕···]--end...↑");
 //        }
-//    }
+    }
 
     /**
-     * 前置通知
-     *
      * @param joinPoint
-     * @throws Throwable
+     * @return void
+     * @throws ..
+     * @description 前置通知
+     * @remark 处理实际请求前触发
+     * @author Mine.Lee
+     * @create 2019/1/15 19:35
      */
     @Before("pointcut()")
     public void doBefore(JoinPoint joinPoint) {
-//        System.out.println("前置通知start...");
+        System.out.println("before通知:::触发");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-//        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue());
+        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
         log.info("REQUEST_URL : " + request.getRequestURL());
         log.info("REQUEST_HEADER : " + JSON.toJSONString(request.getHeaderNames()));
         log.info("REQUEST_METHOD : " + request.getMethod());
@@ -79,42 +105,57 @@ public class LogAspect {
     }
 
     /**
-     * 处理完请求后置通知
-     *
+     * @param joinPoint
      * @param ret
-     * @throws Throwable
+     * @return void
+     * @description 后置通知
+     * @remark 处理完请求后触发
+     * @author Mine.Lee
+     * @create 2019/1/15 19:36
      */
     @AfterReturning(returning = "ret", pointcut = "pointcut()")
     public void doAfterReturning(JoinPoint joinPoint, Object ret) {
-//        System.out.println("后置通知start...");
+        System.out.println("after通知:::触发");
         String JsonRet = "void";
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
+        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
         if (!ObjectUtils.isEmpty(ret)) JsonRet = JSON.toJSONString(ret);
-//        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue().toString());
         log.info("RESPONSE_ARG : " + JsonRet);
     }
 
     /**
-     * 后置异常通知
-     *
      * @param joinPoint
+     * @return void
+     * @throws ..
+     * @description 异常通知
+     * @remark 业务处理发生异常时触发
+     * @author Mine.Lee
+     * @create 2019/1/15 19:39
      */
     @AfterThrowing("pointcut()")
     public void throwss(JoinPoint joinPoint) {
+        System.out.println("exception通知:::触发");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        System.out.println("异常通知start...");
-//        log.info("COOKIE1_VALUE : " + request.getCookies()[0].getValue().toString());
+        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
     }
 
     /**
-     * 后置最终通知,final增强，不管是抛出异常或者正常退出都会执行
-     *
      * @param joinPoint
+     * @return void
+     * @throws InterruptedException
+     * @description 最终通知
+     * @remark 后置最终通知, final增强，不管是抛出异常或者正常退出都会触发
+     * @author Mine.Lee
+     * @create 2019/1/15 19:40
      */
-//    @After("pointcut()")
-//    public void after(JoinPoint joinPoint) throws InterruptedException {
-//        System.out.println("后置最终通知执行");
-//    }
+    @After("pointcut()")
+    public void after(JoinPoint joinPoint) throws InterruptedException {
+        System.out.println("final增强:::触发");
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
+    }
+
 }

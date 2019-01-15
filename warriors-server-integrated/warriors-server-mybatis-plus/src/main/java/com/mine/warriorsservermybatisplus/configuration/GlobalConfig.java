@@ -1,21 +1,17 @@
-package com.mine.warriorsserverribbon.config;
+package com.mine.warriorsservermybatisplus.configuration;
 
 import com.mine.warriorsservercommon.config.aop.LogAspect;
 import com.mine.warriorsservercommon.config.exception.GlobalExceptionHandler;
 import com.mine.warriorsservercommon.config.filter.CrossFilter;
-import com.mine.warriorsservercommon.utils.RestTemplateUtil;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
-
 
 /**
- * @Program: warriors-party
- * @Description: 全局配置
- * @Author: Mine.Lee
- * @Create: 2018-11-15 18:42
- * @Version: v1.0
+ * @program: warriors-party
+ * @description: 全局配置类
+ * @author: Mine.Lee
+ * @create: 2019-01-15 20:45
+ * @version: v1.0
  */
 @Configuration
 public class GlobalConfig {
@@ -34,17 +30,4 @@ public class GlobalConfig {
     CrossFilter CrossFilter() {
         return new CrossFilter();
     }
-
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-
-    @Bean
-    @LoadBalanced
-    RestTemplateUtil restTemplateUtil() {
-        return new RestTemplateUtil();
-    }
-
 }

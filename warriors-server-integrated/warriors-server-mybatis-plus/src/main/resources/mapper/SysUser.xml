@@ -4,19 +4,19 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.mine.warriorsservermybatisplus.entity.SysUser">
-        <id column="t_id" property="tId"/>
-        <result column="create_date" property="createDate"/>
-        <result column="t_name" property="tName"/>
-        <result column="update_date" property="updateDate"/>
-        <result column="version" property="version"/>
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="user_address" property="userAddress"/>
+        <result column="user_remark" property="userRemark"/>
+        <result column="create_time" property="createTime"/>
         <result column="delete_flag" property="deleteFlag"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        t_id, create_date, t_name, update_date, version, delete_flag
+        user_id, user_name, pass_word, user_address, user_remark, create_time, delete_flag
     </sql>   
-
 
 
 </mapper>
