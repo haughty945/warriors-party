@@ -1,31 +1,46 @@
-#服务端口
-server:
-  port: 8009
-
-#基于Eureka的注册中心
 eureka:
   instance:
-    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
-    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
-    lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:8761/eureka/
 
-#spring全家桶
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
 spring:
-  # 监控
-  boot:
-    admin:
-      client:
-        url: http://localhost:8100
   application:
-    name: warriors-server-dynamic-datasource  # 唯一的服务名称或者也可以称为ID
+    name: warriors-server-mybatis-plus
+  security:
+    basic:
+      enabled: false
+    user:
+      name: eureka
+      password: eureka
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
+#    注释的部分是单数据源的配置方式
+#    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
     dynamic:
       primary: master #设置默认的数据源或者数据源组,默认值即为master
       datasource:
@@ -44,11 +59,16 @@ spring:
           password: root
           driver-class-name: com.mysql.jdbc.Driver
           url: jdbc:mysql://localhost:3306/test1
+  jpa:
+    hibernate:
+      ddl-auto: update  # 第一次建表create  后面用update，要不然每次重启都会新建表
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
 #mybatis-plus
 mybatis-plus:
   #实体扫描<包>，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.mine.warriorsserverdynamicdatasource.entity
+  typeAliasesPackage: com.mine.warriorsservermybatisplus.entity
   #mapper配置
   mapper-locations: classpath:/mapper/**Mapper.xml
   global-config:
@@ -75,13 +95,9 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
 
-#sql输出级别
 logging:
   level:
     com:
       mine:
-        warriorsserverdynamicdatasource:
+        warriorsservermybatisplus:
           mapper: debug
-  path: D:/log/dynamic-datasoource
-  file: D:/log/dynamic-datasoource/spring.log
-
