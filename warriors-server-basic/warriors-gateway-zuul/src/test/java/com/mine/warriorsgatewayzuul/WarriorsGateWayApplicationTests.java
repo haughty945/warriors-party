@@ -1,4 +1,4 @@
-package com.mine.warriorsgateway;
+package com.mine.warriorsgatewayzuul;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -16,8 +16,6 @@ import java.util.Date;
  * @version: v1.0
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @ApiModel(value = "【用户】交互层")
 public class SysUserDTO extends BaseDTO {
 

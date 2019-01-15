@@ -16,8 +16,6 @@ import java.util.Date;
  * @version: v1.0
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 #if("$!table.comment" != "")
 @ApiModel(value = "【${table.comment}】交互层")
 #end

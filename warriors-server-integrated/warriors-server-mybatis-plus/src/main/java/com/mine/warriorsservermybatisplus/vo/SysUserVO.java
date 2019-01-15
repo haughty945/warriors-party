@@ -14,8 +14,6 @@ import java.util.Date;
  * @version: v1.0
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ApiModel(value = "【用户】返回层")
 public class SysUserVO {

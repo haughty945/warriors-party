@@ -1,4 +1,4 @@
-package com.mine.warriorsgateway.config;
+package com.mine.warriorsgatewayzuul.config;
 
 import com.mine.warriorsservercommon.config.aop.LogAspect;
 import com.mine.warriorsservercommon.config.exception.GlobalExceptionHandler;

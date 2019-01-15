@@ -93,7 +93,7 @@ public class LogAspect {
         System.out.println("before通知:::触发");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
+//        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
         log.info("REQUEST_URL : " + request.getRequestURL());
         log.info("REQUEST_HEADER : " + JSON.toJSONString(request.getHeaderNames()));
         log.info("REQUEST_METHOD : " + request.getMethod());
@@ -119,7 +119,7 @@ public class LogAspect {
         String JsonRet = "void";
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
+//        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
         if (!ObjectUtils.isEmpty(ret)) JsonRet = JSON.toJSONString(ret);
         log.info("RESPONSE_ARG : " + JsonRet);
     }
@@ -138,7 +138,7 @@ public class LogAspect {
         System.out.println("exception通知:::触发");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
+//        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
     }
 
     /**
@@ -155,7 +155,7 @@ public class LogAspect {
         System.out.println("final增强:::触发");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
+//        System.out.println("COOKIE_VALUE : " + request.getCookies()[0].getValue());
     }
 
 }
