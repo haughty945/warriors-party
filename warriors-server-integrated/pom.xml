@@ -33,7 +33,6 @@
         <module>warriors-server-websocket</module>
         <module>warriors-server-aop</module>
         <module>warriors-server-elasticsearch</module>
-        <module>warriors-server-dynamic-datasource</module>
     </modules>
 
     <dependencies>

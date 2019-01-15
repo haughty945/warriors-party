@@ -4,15 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
- * @Author : john_lee
- * @Date : 2018/12/23
- * @Remark : rabbitMq服务启动类
+ * @program: warriors-party
+ * @description: MQ项目启动类
+ * @author: Mine.Lee
+ * @create: 2019-01-16 01:52
+ * @version: v1.0
  */
 @SpringBootApplication
-@EnableEurekaClient
 @EnableDiscoveryClient
 @RefreshScope
 public class WarriorsServerRabbitMQApplication {

@@ -25,8 +25,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @Controller
-@ControllerAdvice
 @EnableWebMvc
+@ControllerAdvice
 public class GlobalExceptionHandler implements ErrorController {
 
     /**
@@ -61,14 +61,14 @@ public class GlobalExceptionHandler implements ErrorController {
     }
 
     /**
-     * @description 统一异常处理
-     * @remark ..
-     * @author Mine.Lee
-     * @create 2019/1/15 20:03
      * @param request
      * @param e
      * @return com.mine.warriorsservercommon.pojo.ResultVO
      * @throws ..
+     * @description 统一异常处理
+     * @remark ..
+     * @author Mine.Lee
+     * @create 2019/1/15 20:03
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
@@ -84,8 +84,12 @@ public class GlobalExceptionHandler implements ErrorController {
         } else {
             ret.setCode(500);
             ret.setMsg("服务器内部异常");
+//            log.error("LOG_ID : " + request.getAttribute("logId"));
+            log.error("RESPONSE_CODE : " + ret.getCode());
+            log.error("ERROR_DETAIL" + e.getMessage());
             e.printStackTrace();
         }
+
         return ret;
     }
 }

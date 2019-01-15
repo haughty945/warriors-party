@@ -11,7 +11,12 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * redis序列化的配置，不然存对象会乱码
+ * @program: warriors-party
+ * @description: redis序列化配置
+ * @author: Mine.Lee
+ * @create: 2019-01-16 01:52
+ * @version: v1.0
+ * @remark: 不配置序列化存对象会乱码
  */
 @Configuration
 public class RedisConfiguration {

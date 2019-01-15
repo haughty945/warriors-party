@@ -16,7 +16,7 @@ spring:
         enabled: true
         serviceId: warriors-config-center
       label: master
-      profile: dev
+      profile: uat
 
 eureka:
   client:

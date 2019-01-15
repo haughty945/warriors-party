@@ -1,5 +1,6 @@
 package com.mine.warriorsservermybatisplus.service.impl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.mine.warriorsservercommon.pojo.ResultVO;
 import com.mine.warriorsservercommon.utils.BeanCopyUtil;
 import com.mine.warriorsservercommon.utils.ResultVOUtil;
@@ -25,12 +26,14 @@ import com.mine.warriorsservermybatisplus.dto.SysUserDTO;
 @Slf4j
 @Service
 @Transactional
+@DS(value = "master")
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
 
     @Override
+    @DS(value = "slave_1")
     public ResultVO<?> searchSysUserList(SysUserDTO dto){
         SysUser entity=new SysUser();
         BeanCopyUtil.copyPropertiesIgnoreNull(dto,entity);
@@ -41,7 +44,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public ResultVO<?> searchSysUserListPage(SysUserDTO dto){
-        Page<SysUser> page=new Page<SysUser>();
+        Page<SysUser> page=new Page<>();
         page.setSize(dto.getSize());
         page.setCurrent(dto.getCurrent());
         SysUser entity=new SysUser();

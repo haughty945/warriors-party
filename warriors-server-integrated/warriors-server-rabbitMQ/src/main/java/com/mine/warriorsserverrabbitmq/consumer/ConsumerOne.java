@@ -5,9 +5,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author : john_lee
- * @Date   : 2018/12/23
- * @Remark : TODO 描述
+ * @program: warriors-party
+ * @description: 消息消费者
+ * @author: Mine.Lee
+ * @create: 2019-01-16 01:52
+ * @version: v1.0
  */
 @Component
 public class ConsumerOne {

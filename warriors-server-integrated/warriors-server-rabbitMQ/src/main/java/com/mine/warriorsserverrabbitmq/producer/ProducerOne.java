@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 /**
- * @Author : john_lee
- * @Date : 2018/12/23
- * @Remark : TODO 描述
+ * @program: warriors-party
+ * @description: 消息生产者
+ * @author: Mine.Lee
+ * @create: 2019-01-16 01:52
+ * @version: v1.0
  */
-@Slf4j
 @Component
 public class ProducerOne {
 
