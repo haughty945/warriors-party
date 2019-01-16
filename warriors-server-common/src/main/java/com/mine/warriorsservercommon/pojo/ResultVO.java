@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Value;
 
 import java.io.Serializable;
 
@@ -27,7 +28,7 @@ public class ResultVO<T> implements Serializable {
     @ApiModelProperty(value = "返回错误代码", example = "200")
     private int code = 200;
 
-    @ApiModelProperty(value = "返回错误信息描述", example = "SUCCESS")
+    @ApiModelProperty(value = "返回错误信息描述", example = "success")
     private String msg = "success";
 
     @ApiModelProperty(value = "返回对象数据", example = "返回对象数据")
