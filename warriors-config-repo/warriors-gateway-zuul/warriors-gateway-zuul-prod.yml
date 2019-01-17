@@ -49,7 +49,7 @@ eureka:
 zuul:
   prefix: /api    # 配置统一的前缀
 #  add-host-header: true          # 网关在进行请求路由转发前为请求设置Host头信息。不会暴露真实地址
-  ignored-services: /warriors-server-aop/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
+#  ignored-services: /warriors-server-aop/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
 #  ignored-patterns: /**/hello/**                   # 配置不需要映射的接口
   ignoreSecurityHeaders: false      # 是否忽略与权限相关的头信息(默认true)
   #  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods   # 敏感头信息（不向下传递）
@@ -75,16 +75,14 @@ zuul:
   #      sensitiveHeaders: sensitive      # 会过滤服务之间通信附带的headers(不向下传递)
   ratelimit:
     enabled: true
-#    repository: REDIS # 一定要大写
     policies:
       warriors-server-aop:     # 服务Id
-        limit: 10              # 限制次数
+        limit: 10              # 限制次数()
         qupta: 1               # 每个请求的时间限制
-        refreshInterval: 30    # 刷新间隔 （用户refreshInterval秒请求limit次就报错）
+        refreshInterval: 30    # 刷新间隔(多久恢复)
         type:
           - ORIGIN # 大写
 
-# monitor 监控配置
 management:
   security:
     enabled: false  # 关闭框架刷新安全校验
