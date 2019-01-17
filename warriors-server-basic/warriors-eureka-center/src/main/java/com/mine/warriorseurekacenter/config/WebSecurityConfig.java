@@ -6,7 +6,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 /**
  * @Program: warriors-party
- * @Description: 安全认证配置 --- 关闭crsf 否则注册不进来
+ * @Description: 安全认证配置
+ * @remark: 关闭crsf认证,否则注册不进来
  * @Author: Mine.Lee
  * @Create: 2019-01-15 18:38
  * @Version: v1.0
