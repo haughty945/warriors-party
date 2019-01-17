@@ -24,6 +24,18 @@ spring:
     port: 5672
     username: guest
     password: guest
+#  redis:
+#    database: 0
+#    host: 127.0.0.1
+#    port: 6379
+#    password:
+#    timaout: 2000
+#    pool:
+#      max-active: 10  # 连接池最大连接数（使用负值表示没有限制）
+#      max-idle: 8     # 连接池中的最大空闲连接
+#      min-idle: 2     # 连接池中的最小空闲连接
+#      max-wait: 100
+
 
 # 基于Eureka的注册中心
 eureka:
@@ -40,25 +52,36 @@ eureka:
 # 网关的配置
 zuul:
   prefix: /api    # 配置统一的前缀
-    #    add-host-header: true          # 网关在进行请求路由转发前为请求设置Host头信息。不会暴露真实地址
-    ignored-services: /warriors-monitor-admin/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
+  #    add-host-header: true          # 网关在进行请求路由转发前为请求设置Host头信息。不会暴露真实地址
+  #    ignored-services: /warriors-monitor-admin/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
   #    ignored-patterns: /**/hello/**                   # 配置不需要映射的接口
   ignoreSecurityHeaders: false      # 是否忽略与权限相关的头信息(默认true)
-  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods   # 敏感头信息（不向下传递）
+  #  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods   # 敏感头信息（不向下传递）
   retryable: false    # 关闭全局重试机制：
   connectTimeoutMillis: 10000  # 超时时间
-# 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- begin ---
-#  routes:
-#    warriors-server-aop:               # 需要唯一 建议配置为serviceId
-#      path: /aop/**                    # /映射的简单路径/**   两个*标识所有的映射
-#      serviceId: warriors-server-aop   # serviceId 服务的Id
-#      sensitiveHeaders: sensitive      # 会过滤服务之间通信附带的headers(不向下传递)
-#      retryable: false                 # 关闭某一个服务的重试机制
-#
-#    warriors-server-mybatis-plus:
-#      path: /warriors-server-mybatis-plus/**
-#      serviceId: warriors-server-mybatis-plus
-# 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- finish ---
+  # 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- begin ---
+  #  routes:
+  #    warriors-server-aop:               # 需要唯一 建议配置为serviceId
+  #      path: /aop/**                    # /映射的简单路径/**   两个*标识所有的映射
+  #      serviceId: warriors-server-aop   # serviceId 服务的Id
+  #      sensitiveHeaders: sensitive      # 会过滤服务之间通信附带的headers(不向下传递)
+  #      retryable: false                 # 关闭某一个服务的重试机制
+  #
+  #    warriors-server-mybatis-plus:
+  #      path: /warriors-server-mybatis-plus/**
+  #      serviceId: warriors-server-mybatis-plus
+  # 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- finish ---
+  # 服务限流配置
+#  ratelimit:
+#    enabled: true
+#    repository: REDIS # 一定要大写
+#    policies:
+#      warriors-server-aop:    # 服务Id
+#        limit: 10             # 限制每秒多少个请求
+#        qupta: 1              # 每个请求的时间限制
+#        refreshInterval: 3    # 刷新间隔 （用户refreshInterval秒请求limit次就报错）
+#        type:
+#          - ORIGIN # 大写
 
 # monitor 监控配置
 management:
@@ -79,4 +102,3 @@ logging:
       mine:
         warriorsgateway:
           mapper: debug
-
