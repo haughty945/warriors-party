@@ -1,6 +1,9 @@
 # 服务端口
 server:
   port: 8767
+#  session:
+#    cookie:
+#      name: warriors-gateway-zuul-session    # 网关的session名字，建议每个微服务都单独命名
 
 # spring全家桶
 spring:
@@ -37,25 +40,25 @@ eureka:
 # 网关的配置
 zuul:
   prefix: /api    # 配置统一的前缀
-  #    add-host-header: true          # 网关在进行请求路由转发前为请求设置Host头信息。不会暴露真实地址
-  #    ignored-services: /warriors-monitor-admin/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
+    #    add-host-header: true          # 网关在进行请求路由转发前为请求设置Host头信息。不会暴露真实地址
+    ignored-services: /warriors-monitor-admin/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
   #    ignored-patterns: /**/hello/**                   # 配置不需要映射的接口
   ignoreSecurityHeaders: false      # 是否忽略与权限相关的头信息(默认true)
-  #  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods   # 敏感头信息（不向下传递）
+  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods   # 敏感头信息（不向下传递）
   retryable: false    # 关闭全局重试机制：
   connectTimeoutMillis: 10000  # 超时时间
-  # 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- begin ---
-  #  routes:
-  #    warriors-server-aop:               # 需要唯一 建议配置为serviceId
-  #      path: /aop/**                    # /映射的简单路径/**   两个*标识所有的映射
-  #      serviceId: warriors-server-aop   # serviceId 服务的Id
-  #      sensitiveHeaders: sensitive      # 会过滤服务之间通信附带的headers(不向下传递)
-  #      retryable: false                 # 关闭某一个服务的重试机制
-  #
-  #    warriors-server-mybatis-plus:
-  #      path: /warriors-server-mybatis-plus/**
-  #      serviceId: warriors-server-mybatis-plus
-  # 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- finish ---
+# 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- begin ---
+#  routes:
+#    warriors-server-aop:               # 需要唯一 建议配置为serviceId
+#      path: /aop/**                    # /映射的简单路径/**   两个*标识所有的映射
+#      serviceId: warriors-server-aop   # serviceId 服务的Id
+#      sensitiveHeaders: sensitive      # 会过滤服务之间通信附带的headers(不向下传递)
+#      retryable: false                 # 关闭某一个服务的重试机制
+#
+#    warriors-server-mybatis-plus:
+#      path: /warriors-server-mybatis-plus/**
+#      serviceId: warriors-server-mybatis-plus
+# 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- finish ---
 
 # monitor 监控配置
 management:
