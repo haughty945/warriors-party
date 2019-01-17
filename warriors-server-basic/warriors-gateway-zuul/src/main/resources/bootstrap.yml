@@ -1,6 +1,3 @@
-server:
-  port: 8767
-
 spring:
   security:
     basic:
@@ -15,7 +12,7 @@ spring:
         enabled: true
         serviceId: warriors-config-center
       label: master
-      profile: dev
+      profile: prod
 
 eureka:
   client:
