@@ -1,0 +1,55 @@
+#服务端口
+server:
+  port: 8001
+
+#基于Eureka的注册中心
+eureka:
+  instance:
+    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
+  client:
+    serviceUrl:
+      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@172.20.20.33:8761/eureka/
+
+management:
+  security:
+    enabled: false  # 关闭框架刷新安全校验
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 监控端点全部暴露*在yaml 文件属于关键字，所以需要加引号
+  endpoint:
+    health:
+      show-details: ALWAYS # 心跳端点全部暴露
+
+#spring全家桶
+spring:
+  application:
+    name: warriors-server-aop  # 唯一的服务名称或者也可以称为ID
+  security:
+    basic:
+      enabled: false    # 关闭弹出的默认认证登录框
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
+  # bus消息总线配置刷新
+  bus:
+    enabled: true
+  #rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+#sql输出级别
+logging:
+  level:
+    com:
+      mine:
+        warriorsserveraop:
+          mapper: debug
+
