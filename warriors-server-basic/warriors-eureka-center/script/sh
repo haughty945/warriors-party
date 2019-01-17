@@ -1,1 +1,4 @@
-java -Xms64m -Xmx256m -jar warriors-eureka-center-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1> /test/log/eureka/peer1.log
+查看java进程 ps -ef|grep java|grep -v grep
+杀进程 kill -9 pid
+启动jar nohup java -jar warriors-server-logback-0.0.1-SNAPSHOT.jar> /test/log/warriors-server-logback.log&
+最后的那个&一定要的
