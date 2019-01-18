@@ -43,7 +43,7 @@ eureka:
     lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
   client:
     serviceUrl:
-      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
 
 # 网关的配置
 zuul:
