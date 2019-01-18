@@ -17,7 +17,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@peer1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
 
 # 此处的logging是为了配置监控中查看实时log :: file 必须做配置。否则监控中不会暴露logging节点
 logging:

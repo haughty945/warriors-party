@@ -20,7 +20,7 @@ import java.io.IOException;
  * @create: 2019-01-16 23:45
  * @version: v1.0
  */
-@Component
+//@Component
 @Slf4j
 public class AccessFilter extends ZuulFilter {
 

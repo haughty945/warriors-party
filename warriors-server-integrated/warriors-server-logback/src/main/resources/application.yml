@@ -12,7 +12,7 @@ eureka:
     lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
   client:
     serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
 
 management:
   security:
@@ -33,8 +33,8 @@ spring:
     user:
       name: eureka      # 配置登录的账号是user
       password: eureka  # 配置登录的密码是password123
-  main:
-    banner-mode: "off"  # 关闭启动图案
+#  main:
+#    banner-mode: "off"  # 关闭启动图案
 #sql输出级别
 logging:
   level:
@@ -43,5 +43,4 @@ logging:
         warriorsserverlogback:
           mapper: debug
   config: classpath:logback-spring.xml
-  path: D:/workspace/my/_java/log/warriors-server-logback
-  file: D:/workspace/my/_java/log/warriors-server-logback/console.log
+  file: /usr/java/log/warriors-server-logback.log

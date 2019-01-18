@@ -7,8 +7,8 @@ spring:
     name: warriors-monitor-admin  # 唯一的服务名称或者也可以称为ID
   security:
     user:
-      name: admin
-      password: admin
+      name: eureka
+      password: eureka
 
 #基于Eureka的注册中心
 eureka:
@@ -25,7 +25,8 @@ eureka:
         password: ${spring.security.user.password}
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+#      defaultZone: http://eureka:eureka@1:8761/eureka/
 
 management:
   security:
@@ -50,6 +51,8 @@ info:
   blog: https://mine-lee.github.io/warriors-party/
 
 logging:
-  config: classpath:./logback-spring.xml
+  config: classpath:logback-spring.xml
+#  path: /usr/java/log/warriors-monitor-admin
+#  file: /usr/java/log/warriors-monitor-admin/console.log
   path: D:/workspace/my/_java/log/warriors-monitor-admin
   file: D:/workspace/my/_java/log/warriors-monitor-admin/console.log

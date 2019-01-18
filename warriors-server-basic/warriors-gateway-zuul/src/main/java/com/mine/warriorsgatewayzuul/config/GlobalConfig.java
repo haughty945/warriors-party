@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @Create: 2019-01-15 18:42
  * @Version: v1.0
  */
-@Configuration
+//@Configuration
 public class GlobalConfig {
 
     /**
