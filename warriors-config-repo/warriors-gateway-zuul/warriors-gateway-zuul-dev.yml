@@ -25,18 +25,6 @@ spring:
     username: guest
     password: guest
 
-# 基于Eureka的注册中心
-eureka:
-  instance:
-    #    ip-address: 127.0.0.1                       # 指定IP地址，缺省读取本机IPv4地址（无论服务中心是在公网，还是在内网）
-    prefer-ip-address: true                     # 使用IP注册（默认false 缺省值为机器名）
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
-    lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
-  client:
-    serviceUrl:
-      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
-
 # 网关的配置
 zuul:
   prefix: /api    # 配置统一的前缀
