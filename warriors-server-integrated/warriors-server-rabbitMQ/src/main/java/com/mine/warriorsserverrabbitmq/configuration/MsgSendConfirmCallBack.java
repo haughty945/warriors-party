@@ -17,7 +17,7 @@ public class MsgSendConfirmCallBack implements RabbitTemplate.ConfirmCallback {
         if (ack) {
             log.info("消息发送成功:id为" + correlationData.getId());
         } else {
-            log.error("消息发送成功:id为" + correlationData.getId());
+            log.error("消息发送失败:id为" + correlationData.getId());
         }
     }
 }

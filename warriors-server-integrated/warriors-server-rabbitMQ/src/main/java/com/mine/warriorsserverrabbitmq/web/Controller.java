@@ -1,5 +1,6 @@
 package com.mine.warriorsserverrabbitmq.web;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mine.warriorsserverrabbitmq.producer.ProducerOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class Controller {
     private ProducerOne producerOne;
 
     @RequestMapping("hello")
-    public String Test() {
+    public String Test() throws JsonProcessingException {
         return producerOne.sendMsg();
     }
 }

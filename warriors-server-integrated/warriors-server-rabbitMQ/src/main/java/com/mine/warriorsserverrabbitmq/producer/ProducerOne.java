@@ -1,7 +1,10 @@
 package com.mine.warriorsserverrabbitmq.producer;
 
+import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mine.warriorsservercommon.pojo.ResultVO;
 import com.mine.warriorsserverrabbitmq.constant.RabbitConstant;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +25,12 @@ public class ProducerOne {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    public String sendMsg() {
+    public String sendMsg() throws JsonProcessingException {
         String msg = "消息体";
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
-        this.rabbitTemplate.convertAndSend(RabbitConstant.EXCHANGE_A, RabbitConstant.ROUTINGKEY_A, msg, correlationData);
+        System.out.println("发生:" + correlationData.getId());
+        String message = JSON.toJSONString(new ResultVO<>());
+        this.rabbitTemplate.convertAndSend(RabbitConstant.EXCHANGE_A, RabbitConstant.ROUTINGKEY_A, message, correlationData);
         return "SUCCESS";
     }
 }

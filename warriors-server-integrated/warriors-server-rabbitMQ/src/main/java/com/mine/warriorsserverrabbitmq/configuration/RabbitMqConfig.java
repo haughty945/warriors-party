@@ -42,7 +42,10 @@ public class RabbitMqConfig {
      */
     @Bean
     public Binding binding_one() {
-        return BindingBuilder.bind(queueConfig.firstQueue()).to(exchangeConfig.directExchange()).with(RabbitConstant.ROUTINGKEY_A);
+        return BindingBuilder.bind(
+                queueConfig.firstQueue())
+                .to(exchangeConfig.directExchange())
+                .with(RabbitConstant.ROUTINGKEY_A);
     }
 
     /**
@@ -50,7 +53,10 @@ public class RabbitMqConfig {
      */
     @Bean
     public Binding binding_two() {
-        return BindingBuilder.bind(queueConfig.secondQueue()).to(exchangeConfig.directExchange()).with(RabbitConstant.ROUTINGKEY_B);
+        return BindingBuilder.bind(
+                queueConfig.secondQueue())
+                .to(exchangeConfig.directExchange())
+                .with(RabbitConstant.ROUTINGKEY_B);
     }
 
     /**
