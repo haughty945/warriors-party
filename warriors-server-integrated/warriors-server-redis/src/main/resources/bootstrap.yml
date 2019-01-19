@@ -1,7 +1,16 @@
+server:
+  port: 8007
+
+#基于Eureka的注册中心
 eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@localhost:8761/eureka/
+      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
 
 spring:
   cloud:
@@ -13,7 +22,13 @@ spring:
       label: master
       profile: dev
 
+# log输出级别
 logging:
   config: classpath:logback-spring.xml
   path: D:/workspace/my/_java/log/warriors-server-redis
   file: D:/workspace/my/_java/log/warriors-server-redis/console.log
+  level:
+    com:
+      mine:
+        warriorsserverredis:
+          mapper: debug

@@ -1,4 +1,4 @@
-package com.mine.warriorsserveraop.web;
+package com.mine.warriorsserverlogback.web;
 
 import com.mine.warriorsservercommon.pojo.ResultVO;
 import org.springframework.web.bind.annotation.*;
@@ -8,9 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @program: warriors-party
+ * @description: Aop测试类
+ * @author: Mine.Lee
+ * @create: 2019-01-19 21:21
+ * @version: v1.0
+ * @remark: ..
+ */
 @RestController
-@RequestMapping("hello")
-public class HelloController {
+public class AopController {
 
     @RequestMapping("test1")
     public Object hello1() {
@@ -47,4 +54,5 @@ public class HelloController {
     public void hello6() {
         System.out.println(System.currentTimeMillis() + "这是一个测试");
     }
+
 }

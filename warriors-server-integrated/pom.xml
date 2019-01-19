@@ -31,7 +31,6 @@
         <module>warriors-server-jwt</module>
         <module>warriors-server-async</module>
         <module>warriors-server-websocket</module>
-        <module>warriors-server-aop</module>
         <module>warriors-server-elasticsearch</module>
     </modules>
 

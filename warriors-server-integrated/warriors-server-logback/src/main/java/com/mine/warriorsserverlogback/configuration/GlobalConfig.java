@@ -1,4 +1,4 @@
-package com.mine.warriorsserveraop.configuration;
+package com.mine.warriorsserverlogback.configuration;
 
 import com.mine.warriorsservercommon.config.aop.LogAspect;
 import com.mine.warriorsservercommon.config.exception.GlobalExceptionHandler;

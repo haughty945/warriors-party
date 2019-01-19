@@ -35,6 +35,7 @@ spring:
       password: eureka  # 配置登录的密码是password123
 #  main:
 #    banner-mode: "off"  # 关闭启动图案
+
 #sql输出级别
 logging:
   level:
@@ -43,4 +44,8 @@ logging:
         warriorsserverlogback:
           mapper: debug
   config: classpath:logback-spring.xml
-  file: /usr/java/log/warriors-server-logback.log
+#  path: /usr/java/log/warriors-server-logback
+#  file: /usr/java/log/warriors-server-logback/console.log
+  path: D:/workspace/my/_java/log/warriors-server-logback
+  file: D:/workspace/my/_java/log/warriors-server-logback/console.log
+
