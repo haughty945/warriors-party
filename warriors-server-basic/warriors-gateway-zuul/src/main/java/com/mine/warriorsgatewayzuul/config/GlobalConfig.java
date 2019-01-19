@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @Create: 2019-01-15 18:42
  * @Version: v1.0
  */
-//@Configuration
+@Configuration
 public class GlobalConfig {
 
     /**
@@ -43,7 +43,7 @@ public class GlobalConfig {
     /**
      * @Description 跨域过滤器
      * @Author Mine.Lee
-     * @Date 2019/1/15 18:44 
+     * @Date 2019/1/15 18:44
      * @Param []
      * @Return com.mine.warriorsservercommon.config.filter.CrossFilter
      */

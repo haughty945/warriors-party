@@ -79,8 +79,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     public ResultVO<?> update${entity}(${entity}DTO dto){
         ${entity} entity = new ${entity}();
-        BeanCopyUtil.copyPropertiesIgnoreNull(dto,entity);
+        // entity.setId(dto.getId());
         ${entity} result = ${tableMapperName}.selectOne(entity);
+        BeanCopyUtil.copyPropertiesIgnoreNull(dto,result);
         ${tableMapperName}.updateById(result);
         return ResultVOUtil.returnSuccess();
     }

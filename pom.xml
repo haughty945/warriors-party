@@ -15,11 +15,13 @@
         <module>warriors-server-basic</module>
         <module>warriors-server-integrated</module>
         <module>warriors-server-common</module>
+        <module>warriors-war-user</module>
     </modules>
 
     <groupId>com.mine</groupId>
     <artifactId>warriors-party</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+
     <name>warriors-party</name>
     <description>云服务项目</description>
 

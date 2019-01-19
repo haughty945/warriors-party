@@ -26,7 +26,7 @@ public class MpGenerator {
      * DataSource config
      * tableNames : {多个表用逗号分隔}
      */
-    private static String dateSourceUrl = "jdbc:mysql://127.0.0.1:3306/test?useSSL=false";
+    private static String dateSourceUrl = "jdbc:mysql://127.0.0.1:3306/warriors?useSSL=false";
     private static String dataSourceUserName = "root";
     private static String dataSourcePassWord = "root";
     private static String dataSourceDriverName = "com.mysql.jdbc.Driver";
@@ -35,9 +35,9 @@ public class MpGenerator {
     /**
      * Project config
      */
-    private static String projectDir = "D:\\workspace\\my\\_java\\warriors-party\\warriors-server-integrated\\warriors-server-mybatis-plus";
+    private static String projectDir = "D:\\workspace\\my\\_java\\warriors-party\\warriors-war-user";
     private static String parent = "com.mine";
-    private static String moduleName = "warriorsservermybatisplus";
+    private static String moduleName = "warriorswaruser";
     private static String author = "Mine.Lee";
 
     /**

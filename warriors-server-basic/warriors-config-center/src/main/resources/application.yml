@@ -1,15 +1,6 @@
 server:
   port: 8888
 
-eureka:
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 1
-    lease-expiration-duration-in-seconds: 1
-  client:
-    serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
 spring:
   application:
     name: warriors-config-center
@@ -26,3 +17,16 @@ spring:
           search-paths: warriors-config-repo/*
           username:
           password:
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@176.122.189.97:8761/eureka/
+#      生产环境请不要直接把用户名和密码暴露
+#      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+

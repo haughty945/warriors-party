@@ -6,6 +6,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Future;
 
+/**
+ * @program: warriors-party
+ * @description: 测试异步调用实现
+ * @author: Mine.Lee
+ * @create: 2019-01-19 17:24
+ * @version: v1.0
+ * @remark: ..
+ */
 @Component
 public class AsyncTask {
 

@@ -7,6 +7,9 @@ spring:
     user:
       name: eureka
       password: eureka
+  # bus消息总线配置刷新
+  bus:
+    enabled: true
   rabbitmq:
     host: 127.0.0.1
     port: 5672

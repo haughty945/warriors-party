@@ -30,11 +30,10 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler implements ErrorController {
 
     /**
-     * @param
-     * @return java.lang.String 当映射/接口/路径不存在时的返回路径
+     * @return java.lang.String 必须定义为/error
      * @throws ..
      * @description NoHandlerMapper 映射/接口/路径不存在
-     * @remark 必须定义为/error
+     * @remark 当映射/接口/路径不存在时的返回路径
      * @author Mine.Lee
      * @create 2019/1/15 20:00
      */
@@ -81,6 +80,7 @@ public class GlobalExceptionHandler implements ErrorController {
         } else if (e instanceof HttpMessageNotReadableException || e instanceof HttpMediaTypeNotSupportedException || e instanceof MissingServletRequestParameterException) {
             ret.setCode(400);
             ret.setMsg("请求参数不正确");
+            ret.setData(e.getMessage());
         } else {
             ret.setCode(500);
             ret.setMsg("服务器内部异常");
