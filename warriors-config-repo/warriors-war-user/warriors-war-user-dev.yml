@@ -23,6 +23,11 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
 
+# 2.0以后feign的断路器需要手动配置开启
+feign:
+  hystrix:
+    enabled: true
+
 #mybatis-plus
 mybatis-plus:
   #实体扫描<包>，多个package用逗号或者分号分隔

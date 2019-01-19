@@ -30,6 +30,11 @@ spring:
   application:
     name: warriors-server-feign  # 唯一的服务名称或者也可以称为ID
 
+# 2.0以后feign的断路器默认是关闭的,需配置以下
+feign:
+  hystrix:
+    enabled: true
+
 #sql输出级别
 logging:
   level:
