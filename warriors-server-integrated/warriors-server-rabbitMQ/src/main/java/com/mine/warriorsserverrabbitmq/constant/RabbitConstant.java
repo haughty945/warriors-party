@@ -2,7 +2,7 @@ package com.mine.warriorsserverrabbitmq.constant;
 
 /**
  * @program: warriors-party
- * @description: 常亮配置类
+ * @description: 常量配置类
  * @author: Mine.Lee
  * @create: 2019-01-16 01:52
  * @version: v1.0
