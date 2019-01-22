@@ -21,6 +21,7 @@
         <module>warriors-server-feign</module>
         <module>warriors-server-ribbon</module>
         <module>warriors-server-mybatis-plus</module>
+        <module>warriors-server-mongodb-plus</module>
         <module>warriors-server-rabbitMQ</module>
         <module>warriors-server-redis</module>
         <module>warriors-server-quartz</module>
