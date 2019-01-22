@@ -18,10 +18,18 @@ spring:
       label: master
       profile: dev
 
+#基于Eureka的注册中心
 eureka:
+  instance:
+    prefer-ip-address: true                     # 使用IP注册（默认关闭缺省值为机器名）
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1        # 服务续约周期，缺省值为30s
+    lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
   client:
     serviceUrl:
       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+
+
 
 logging:
   config: classpath:logback-spring.xml

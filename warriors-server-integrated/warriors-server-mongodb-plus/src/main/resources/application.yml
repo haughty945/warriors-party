@@ -1,0 +1,24 @@
+server:
+  port: 8008
+
+spring:
+  application:
+    name: warriors-server-mongodb-plus
+  security:
+    user:
+      name: eureka
+      password: eureka
+  data:
+    mongodb:
+      uri: mongodb://guest:guest@176.122.189.97:27017/warriors
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+
