@@ -1,0 +1,62 @@
+# spring全家桶
+spring:
+  application:
+    name: warriors-gateway-zuul  # 唯一的服务名称或者也可以称为ID
+  security:
+    basic:
+      enabled: false    # 关闭弹出的默认认证登录框
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
+  # bus 消息总线
+  bus:
+    enabled: true       # 开启配置刷新
+  #rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+# 网关的配置
+zuul:
+  prefix: /api    # 配置统一的前缀
+#    add-host-header: true          # 网关在进行请求路由转发前为请求设置Host头信息。不会暴露真实地址
+    ignored-services: /warriors-monitor-admin/**,/warriors-monitor-turbine/**  # 配置不需要映射的服务Id
+#    ignored-patterns: /**/hello/**                   # 配置不需要映射的接口
+#  ignoreSecurityHeaders: false      # 是否忽略与权限相关的头信息(默认true)
+#  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods   # 敏感头信息（不向下传递）
+#  retryable: false    # 关闭全局重试机制：
+#  connectTimeoutMillis: 10000  # 超时时间
+# 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- begin ---
+  routes:
+    warriors-war-user:               # 需要唯一 建议配置为serviceId
+      path: /mine/**                    # /映射的简单路径/**   两个*标识所有的映射
+      serviceId: warriors-war-user   # serviceId 服务的Id
+#      sensitiveHeaders: sensitive      # 会过滤服务之间通信附带的headers(不向下传递)
+#      retryable: false                 # 关闭某一个服务的重试机制
+
+#    warriors-server-mybatis-plus:
+#      path: /warriors-server-mybatis-plus/**
+#      serviceId: warriors-server-mybatis-plus
+# 如果需要对某个服务进行一个不同方式处理的话需要这些下面的配置 --- finish ---
+
+# monitor 监控配置
+management:
+  security:
+    enabled: false  # 关闭框架刷新安全校验
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 监控端点全部暴露*在yaml 文件属于关键字，所以需要加引号
+  endpoint:
+    health:
+      show-details: ALWAYS # 心跳端点全部暴露
+
+# sql输出级别
+logging:
+  level:
+    com:
+      mine:
+        warriorsgateway:
+          mapper: debug
