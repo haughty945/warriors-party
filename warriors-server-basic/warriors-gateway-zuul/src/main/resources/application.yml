@@ -1,0 +1,74 @@
+server:
+  port: 9999
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+
+# spring全家桶
+spring:
+  application:
+    name: warriors-gateway-zuul  # 唯一的服务名称或者也可以称为ID
+  security:
+    basic:
+      enabled: false    # 关闭弹出的默认认证登录框
+    user:
+      name: eureka      # 配置登录的账号是user
+      password: eureka  # 配置登录的密码是password123
+  cloud:
+    config:
+      label: master
+      profile: dev
+      name: warriors-gateway-zuul
+      discovery:
+        enabled: true
+        serviceId: warriors-config-center
+  # bus 消息总线
+  bus:
+    enabled: true       # 开启配置刷新
+  #rabbitmq
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+# 网关的配置
+zuul:
+  prefix: /api    # 配置统一的前缀
+
+management:
+  security:
+    enabled: false  # 关闭框架刷新安全校验
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 监控端点全部暴露*在yaml 文件属于关键字，所以需要加引号
+  endpoint:
+    health:
+      show-details: ALWAYS # 心跳端点全部暴露
+
+info:
+  project:
+    name: @project.artifactId@
+    version: @project.version@
+    description: @project.description@
+  spring:
+    boot.version: @spring-boot.version@
+    cloud.version: @spring-cloud.version@
+  author: Mine.Lee
+  blog: https://mine-lee.github.io/warriors-party/
+
+# sql输出级别
+logging:
+  level:
+    com:
+      mine:
+        warriorsgateway:
+          mapper: debug
