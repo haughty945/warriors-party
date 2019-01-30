@@ -1,0 +1,3 @@
+spring:
+  thymeleaf:
+    cache: false  # 取消模板文件缓存

@@ -33,6 +33,7 @@
         <module>warriors-server-async</module>
         <module>warriors-server-websocket</module>
         <module>warriors-server-elasticsearch</module>
+        <module>warriors-server-file</module>
     </modules>
 
     <dependencies>

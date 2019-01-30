@@ -6,3 +6,4 @@ spring:
     name: warriors-gate-way
   cloud:
     gateway:
+      enable: true
