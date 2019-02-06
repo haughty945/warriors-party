@@ -21,23 +21,6 @@ spring:
     user:
       name: eureka      # 配置登录的账号是user
       password: eureka  # 配置登录的密码是password123
-  cloud:
-    config:
-      label: master
-      profile: dev
-      name: warriors-gateway-zuul
-      discovery:
-        enabled: true
-        serviceId: warriors-config-center
-  # bus 消息总线
-  bus:
-    enabled: true       # 开启配置刷新
-  #rabbitmq
-  rabbitmq:
-    host: 127.0.0.1
-    port: 5672
-    username: guest
-    password: guest
 
 # 网关的配置
 zuul:
