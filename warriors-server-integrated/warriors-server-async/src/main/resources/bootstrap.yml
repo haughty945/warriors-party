@@ -1,5 +1,5 @@
 server:
-  port: 8002
+  port: 8003
 
 spring:
   security:
@@ -10,7 +10,7 @@ spring:
       password: eureka  # 配置登录的密码是password123
   cloud:
     config:
-      name: warriors-server-aop
+      name: warriors-server-async
       discovery:
         enabled: true
         serviceId: warriors-config-center
@@ -26,5 +26,5 @@ eureka:
     lease-expiration-duration-in-seconds: 1
   client:
     serviceUrl:
-      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka/
 
