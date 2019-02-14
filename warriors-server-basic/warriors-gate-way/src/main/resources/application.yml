@@ -1,9 +1,0 @@
-server:
-  port: 8999
-
-spring:
-  application:
-    name: warriors-gate-way
-  cloud:
-    gateway:
-      enable: true

@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Date : 2018/12/17
  * @Remark : TODO 描述
  */
-@FeignClient(value = "WARRIORS-SERVER-ELEMENT",fallback = HiHystric.class)
+@FeignClient(value = "WARRIORS-SERVER-ASYNC",fallback = HiHystric.class)
 public interface HiService {
 
-    @RequestMapping(value = "hi",method = RequestMethod.GET)
+    @RequestMapping(value = "task1",method = RequestMethod.GET)
     public String hi();
 }

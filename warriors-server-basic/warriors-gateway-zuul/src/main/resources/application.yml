@@ -21,6 +21,13 @@ spring:
     user:
       name: eureka      # 配置登录的账号是user
       password: eureka  # 配置登录的密码是password123
+  zipkin:
+    base-url: http://176.122.189.97:9411/
+    sender:
+      type: web  # 设置使用http的方式传输数据
+    sleuth:
+      sampler:
+        probability: 1  # 设置抽样采集为100%，默认为0.1，即10%
 
 # 网关的配置
 zuul:
