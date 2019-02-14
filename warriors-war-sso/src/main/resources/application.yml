@@ -1,0 +1,86 @@
+server:
+  port: 8102
+
+spring:
+  profiles: sso1
+  application:
+    name: warriors-war-sso
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+info:
+  project:
+    name: @project.artifactId@
+    version: @project.version@
+    description: @project.description@
+  spring:
+    boot.version: @spring-boot.version@
+    cloud.version: @spring-cloud.version@
+  author: Mine.Lee
+  blog: https://mine-lee.github.io/warriors-party/
+
+---
+server:
+  port: 8103
+
+spring:
+  profiles: sso2
+  application:
+    name: warriors-war-sso
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+info:
+  project:
+    name: @project.artifactId@
+    version: @project.version@
+    description: @project.description@
+  spring:
+    boot.version: @spring-boot.version@
+    cloud.version: @spring-cloud.version@
+  author: Mine.Lee
+  blog: https://mine-lee.github.io/warriors-party/

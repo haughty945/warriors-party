@@ -16,6 +16,7 @@
         <module>warriors-server-integrated</module>
         <module>warriors-server-common</module>
         <module>warriors-war-user</module>
+        <module>warriors-war-sso</module>
     </modules>
 
     <groupId>com.mine</groupId>
