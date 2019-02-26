@@ -34,6 +34,7 @@
         <module>warriors-server-websocket</module>
         <module>warriors-server-elasticsearch</module>
         <module>warriors-server-file</module>
+        <module>warriors-server-esay-excel</module>
     </modules>
 
     <dependencies>
