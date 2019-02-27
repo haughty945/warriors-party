@@ -28,7 +28,7 @@ import java.util.List;
 public class ExcelController {
 
     @RequestMapping(value = "/exportExcel",method = RequestMethod.GET)
-    public void exportExcel(HttpServletRequest request, HttpServletResponse response) {
+    public ResultVO<?> exportExcel(HttpServletRequest request, HttpServletResponse response) {
         List<User> datas = new ArrayList<>();
         try {
             for (int i = 0; i < 5; i++) {
@@ -39,10 +39,11 @@ public class ExcelController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return ResultVOUtil.returnSuccess();
     }
 
     @RequestMapping(value = "/importExcel",method = RequestMethod.POST)
-    public ResultVO<?> importExcel2(@RequestParam("file") MultipartFile file) {
+    public ResultVO<?> importExcel(@RequestParam("file") MultipartFile file) {
         try {
             List<User> list = (List<User>) ExcelUtil.importExcel(file, User.class);
             if (list != null || list.size() > 0) {

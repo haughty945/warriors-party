@@ -14,7 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>warriors-server-esay-poi</name>
-    <description>springboot 整合阿里easyExcel导入导出</description>
+    <description>springboot easypoi实现Excel导入导出</description>
 
     <dependencies>
         <dependency>
