@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mine</groupId>
+        <artifactId>warriors-server-integrated</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.mine</groupId>
+    <artifactId>warriors-server-esay-poi</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>warriors-server-esay-poi</name>
+    <description>springboot 整合阿里easyExcel导入导出</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- Excel 导入 start -->
+        <!-- 不再重复导入依赖，已经移动到了common中 -->
+        <!--<dependency>-->
+            <!--<groupId>cn.afterturn</groupId>-->
+            <!--<artifactId>easypoi-base</artifactId>-->
+            <!--<version>3.2.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--&lt;!&ndash;easypoi-web 耦合了spring-mvc 基于AbstractView,极大的简化spring-mvc下的导出功能&ndash;&gt;-->
+            <!--<groupId>cn.afterturn</groupId>-->
+            <!--<artifactId>easypoi-web</artifactId>-->
+            <!--<version>3.2.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--&lt;!&ndash;easypoi-annotation 基础注解包,作用与实体对象上,拆分后方便maven多工程的依赖管理&ndash;&gt;-->
+            <!--<groupId>cn.afterturn</groupId>-->
+            <!--<artifactId>easypoi-annotation</artifactId>-->
+            <!--<version>3.2.0</version>-->
+        <!--</dependency>-->
+        <!-- Excel 导入 end -->
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
