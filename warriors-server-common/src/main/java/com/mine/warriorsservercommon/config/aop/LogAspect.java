@@ -60,7 +60,7 @@ public class LogAspect {
         log.info("REQUEST_IP : " + request.getRemoteAddr());
         log.info("REQUEST_PORT : " + request.getServerPort());
         log.info("REQUEST_URI : " + request.getRequestURI());
-        log.info("REQUEST_ARGS[] : " + JSON.toJSONString(joinPoint.getArgs()));
+//        log.info("REQUEST_ARGS[] : " + JSON.toJSONString(joinPoint.getArgs()));
         log.info("JAVA_CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
     }
 
