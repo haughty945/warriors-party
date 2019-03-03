@@ -15,8 +15,8 @@ spring:
         git:
           uri: https://github.com/mine-lee/warriors-party.git
           search-paths: warriors-config-repo/*
-          username:
-          password:
+          username: mine-lee
+          password: Mm962464
 
 eureka:
   instance:
