@@ -18,7 +18,7 @@ spring:
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
-    url: jdbc:mysql://localhost:3306/warriors?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://176.122.189.97:3306/warriors?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
