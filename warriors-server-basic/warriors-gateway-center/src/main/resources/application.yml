@@ -4,14 +4,14 @@ server:
 spring:
   application:
     name: warriors-gateway-center
-    gateway:
-      default-filters:
-        - PrefixPath=/api
-      enabled: true #关闭/启动网关  true：打开网关； false；关闭网关
-      discovery:
-        locator:
-          lowerCaseServiceId: true  #配置完成之后我们就可以通过小写的服务名称进行访问了; http://网关地址/服务名称（小写）/**
-          enabled: true
+  gateway:
+    default-filters:
+      - PrefixPath=/api
+    enabled: true #关闭/启动网关  true：打开网关； false；关闭网关
+    discovery:
+      locator:
+        lowerCaseServiceId: true  #配置完成之后我们就可以通过小写的服务名称进行访问了; http://网关地址/服务名称（小写）/**
+        enabled: true
 
 eureka:
   instance:
