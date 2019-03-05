@@ -1,12 +1,17 @@
 server:
-  port: 9999
+  port: 8000
 
 spring:
   application:
-    name: warriors-gateway-center
+    name: ws-sms-gateway
+  profiles:
+    active: dev
+  cloud:
+    inetutils:
+      default-ip-address: 127.0.0.1
     #gateway:
       #default-filters:
-      #- PrefixPath=/api
+      #- PrefixPath=/wx
       #- AddResponseHeader=X-Response-Default-Foo, Default-Bar
     gateway:
       enabled: true #关闭/启动网关  true：打开网关； false；关闭网关
@@ -32,13 +37,15 @@ spring:
         #  filters:
         #    - StripPrefix=1 # 去除请求地址中的to_client
 
+
+
 eureka:
   instance:
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 1
-    lease-expiration-duration-in-seconds: 1
+    preferIpAddress: true
+    instance-id: ${spring.cloud.inetutils.default-ip-address}:${server.port}
   client:
+    #registerWithEureka: true
+    #fetchRegistry: true
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://wxeureka:wxeurekapw@127.0.0.1:8761/eureka/
 
