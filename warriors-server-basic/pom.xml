@@ -23,6 +23,7 @@
         <module>warriors-gateway-zuul</module>
         <module>warriors-monitor-admin</module>
         <module>warriors-monitor-turbine</module>
+        <module>warriors-gateway-center</module>
     </modules>
 
     <dependencies>
