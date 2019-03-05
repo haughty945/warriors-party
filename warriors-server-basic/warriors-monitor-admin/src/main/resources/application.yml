@@ -23,7 +23,7 @@ eureka:
         password: ${spring.security.user.password}
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka/
 
 management:
   security:

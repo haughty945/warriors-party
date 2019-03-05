@@ -12,6 +12,10 @@ spring:
       locator:
         lowerCaseServiceId: true  #配置完成之后我们就可以通过小写的服务名称进行访问了; http://网关地址/服务名称（小写）/**
         enabled: true
+  security:
+    user:
+      name: eureka
+      password: eureka
 
 eureka:
   instance:
@@ -21,5 +25,5 @@ eureka:
     lease-expiration-duration-in-seconds: 1
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka/
 

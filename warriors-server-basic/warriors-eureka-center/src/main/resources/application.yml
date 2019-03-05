@@ -20,7 +20,7 @@ eureka:
     registerWithEureka: false             # 不要向注册中心注册自己
     fetchRegistry: false                  # 表示不去检索其他的服务
     serviceUrl:
-      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka
 
 
 

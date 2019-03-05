@@ -2,13 +2,6 @@ server:
   port: 8003
 
 spring:
-  zipkin:
-    base-url: http://176.122.189.97:9411/
-    sender:
-      type: web  # 设置使用http的方式传输数据
-  sleuth:
-    sampler:
-      probability: 1  # 设置抽样采集为100%，默认为0.1，即10%
   security:
     basic:
       enabled: false    # 关闭弹出的默认认证登录框

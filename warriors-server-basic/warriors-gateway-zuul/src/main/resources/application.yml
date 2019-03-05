@@ -60,5 +60,5 @@ logging:
   level:
     com:
       mine:
-        warriorsgateway:
+        warriorsgatewayzuul:
           mapper: debug
