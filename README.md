@@ -5,8 +5,6 @@
     
     ·https://www.oschina.net/news/97226/spring-cloud-finchley-released
     ·https://blog.csdn.net/qq_37170583/article/details/80704904
-    
-    springcloud ---Finchley.RELEASE和springboot 2.0.6似乎有一些小问题如果出现问题,请降低版本  Finchley.SR1和2.0.3
  
 ## 打包说明:
     
@@ -52,7 +50,7 @@
 
 ### 子服务中的配置文件说明参阅:
     
-    ·https://blog.csdn.net/xx326664162/article/details/80048704
+    https://blog.csdn.net/xx326664162/article/details/80048704
     
         上述我们提到Eureka-Server不止一个。因此我们再注册配置注册中心的地址就可以配置多个，以逗号分隔，当然也可以配置一个，因为Eureka集群中的节
     点都是相互同步的。
