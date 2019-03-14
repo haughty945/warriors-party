@@ -54,10 +54,4 @@ public class RestTemplateUtil {
         return resp;
     }
 
-    public static void main(String[] args) {
-        RestTemplateUtil restTemplateUtil = new RestTemplateUtil();
-        String url = "http://172.21.4.188:8001/hello/test1";
-        ResponseEntity<Object> entity = restTemplateUtil.exchange(url, HttpMethod.GET, null, Object.class);
-        System.out.println(JSON.toJSONString(entity.getBody()));
-    }
 }
