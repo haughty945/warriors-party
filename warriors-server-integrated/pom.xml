@@ -35,6 +35,7 @@
         <module>warriors-server-elasticsearch</module>
         <module>warriors-server-file</module>
         <module>warriors-server-esay-poi</module>
+        <module>warriors-server-freemarker</module>
     </modules>
 
     <dependencies>
