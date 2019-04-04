@@ -52,11 +52,11 @@ public class AccessFilter extends ZuulFilter {
     }
 
     /**
+     * @return boolean
      * @description 过滤器的开关
      * @remark 生效为true 不生效为false 如果这个请求最终被拦截掉,则后面的过滤器逻辑也不需要执行了
      * @author Mine.Lee
      * @create 2019/1/16 23:50
-     * @return boolean
      */
     @Override
     public boolean shouldFilter() {
@@ -65,13 +65,13 @@ public class AccessFilter extends ZuulFilter {
     }
 
     /**
-     * @description 过滤规则
-     * @remark ..或者叫做过滤器的具体逻辑的实现
-     *          通过请求的上下文对象去设置网关是否对该请求响应处理; requestContext.setSendZuulResponse(true)  false 拦截 true 放行
-     * @author Mine.Lee
-     * @create 2019/1/16 23:53
      * @return java.lang.Object
      * @throws ZuulException
+     * @description 过滤规则
+     * @remark ..或者叫做过滤器的具体逻辑的实现
+     * 通过请求的上下文对象去设置网关是否对该请求响应处理; requestContext.setSendZuulResponse(true)  false 拦截 true 放行
+     * @author Mine.Lee
+     * @create 2019/1/16 23:53
      */
     @Override
     public Object run() throws ZuulException {
