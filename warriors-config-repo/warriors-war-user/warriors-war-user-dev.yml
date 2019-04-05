@@ -11,16 +11,16 @@ spring:
   bus:
     enabled: true
   rabbitmq:
-    host: 127.0.0.1
+    host: 176.122.189.97
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: admin
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
     url: jdbc:mysql://176.122.189.97:3306/warriors?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
-    password: root
+    password: Root@696969
     driver-class-name: com.mysql.jdbc.Driver
 
 # 2.0以后feign的断路器需要手动配置开启
