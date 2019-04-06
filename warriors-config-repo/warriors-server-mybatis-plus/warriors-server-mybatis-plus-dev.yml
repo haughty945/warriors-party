@@ -27,7 +27,7 @@ spring:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
 #    注释的部分是单数据源的配置方式
-#    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+#    url: jdbc:mysql://176.122.189.97:3306/warriors-party?useUnicode=true&characterEncoding=UTF-8
 #    username: root
 #    password: Root@696969
 #    driver-class-name: com.mysql.jdbc.Driver
@@ -38,17 +38,17 @@ spring:
           username: root
           password: Root@696969
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://176.122.189.97:3306/warriors
+          url: jdbc:mysql://176.122.189.97:3306/warriors-party
         slave_1:
           username: root
           password: Root@696969
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://176.122.189.97:3306/test
+          url: jdbc:mysql://176.122.189.97:3306/warriors-party
         slave_2:
           username: root
           password: Root@696969
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://176.122.189.97:3306/test1
+          url: jdbc:mysql://176.122.189.97:3306/warriors-party
 
 #mybatis-plus
 mybatis-plus:
