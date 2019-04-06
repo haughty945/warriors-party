@@ -1,7 +1,3 @@
-#服务端口
-server:
-  port: 8003
-
 #基于Eureka的注册中心
 eureka:
   instance:
@@ -22,7 +18,7 @@ spring:
   datasource:
     url: jdbc:mysql://176.122.189.97:3306/warriors-party?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: Rooy@696969
+    password: Root@696969
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
