@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka:eureka@localhost:8761/eureka/
+      defaultZone: http://eureka:eureka@127.0.0.1:8761/eureka/
 
 spring:
   cloud:
@@ -25,5 +25,5 @@ management:
 
 logging:
 #  config: classpath:./logback-spring.xml_
-  path: D:/workspace/my/_java/log/warriors-server-ribbon
-  file: D:/workspace/my/_java/log/warriors-server-ribbon/spring.log
+  path: ./log/warriors-server-ribbon
+  file: ./log/warriors-server-ribbon/spring.log

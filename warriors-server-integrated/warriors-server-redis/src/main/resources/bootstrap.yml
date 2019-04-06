@@ -10,7 +10,7 @@ eureka:
     lease-expiration-duration-in-seconds: 1
   client:
     serviceUrl:
-      defaultZone:  http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+      defaultZone:  http://eureka:eureka@127.0.0.1:8761/eureka/
 
 spring:
   cloud:
@@ -25,8 +25,8 @@ spring:
 # log输出级别
 logging:
   config: classpath:logback-spring.xml
-  path: D:/workspace/my/_java/log/warriors-server-redis
-  file: D:/workspace/my/_java/log/warriors-server-redis/console.log
+  path: ./log/warriors-server-redis
+  file: ${logging.path}/console.log
   level:
     com:
       mine:

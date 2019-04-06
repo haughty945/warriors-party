@@ -44,8 +44,6 @@ logging:
         warriorsserverlogback:
           mapper: debug
   config: classpath:logback-spring.xml
-#  path: /usr/java/log/warriors-server-logback
-#  file: /usr/java/log/warriors-server-logback/console.log
-  path: D:/workspace/my/_java/log/warriors-server-logback
-  file: D:/workspace/my/_java/log/warriors-server-logback/console.log
+  path: ./log/warriors-server-logback
+  file: ./log/warriors-server-logback/console.log
 

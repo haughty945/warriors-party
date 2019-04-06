@@ -26,16 +26,18 @@ public class MpGenerator {
      * DataSource config
      * tableNames : {多个表用逗号分隔}
      */
-    private static String dateSourceUrl = "jdbc:mysql://127.0.0.1:3306/warriors?useSSL=false";
+    private static String dateSourceUrl = "jdbc:mysql://176.122.189.97:3306/warriors-party";
     private static String dataSourceUserName = "root";
-    private static String dataSourcePassWord = "root";
+    private static String dataSourcePassWord = "Root@696969";
     private static String dataSourceDriverName = "com.mysql.jdbc.Driver";
     private static String[] tableNames = {"sys_user"};
 
     /**
      * Project config
      */
-    private static String projectDir = "D:\\workspace\\my\\_java\\warriors-party\\warriors-war-user";
+
+
+    private static String projectDir = "/Users/mac/dev/IdeaProjects/warriors-party/warriors-war-user";
     private static String parent = "com.mine";
     private static String moduleName = "warriorswaruser";
     private static String author = "Mine.Lee";

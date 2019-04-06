@@ -27,11 +27,11 @@ eureka:
     lease-expiration-duration-in-seconds: 1     # 服务失效时间，缺省值为90s
   client:
     serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@176.122.189.97:8761/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@127.0.0.1:8761/eureka/
 
 
 
 logging:
   config: classpath:logback-spring.xml
-  path: D:/workspace/my/_java/log/warriors-server-mybatis-plus
-  file: D:/workspace/my/_java/log/warriors-server-mybatis-plus/console.log
+  path: ./log/warriors-server-mybatis-plus
+  file: ./log/warriors-server-mybatis-plus/console.log

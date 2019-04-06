@@ -29,13 +29,6 @@ management:
 spring:
   application:
     name: warriors-server-feign  # 唯一的服务名称或者也可以称为ID
-  zipkin:
-    base-url: http://176.122.189.97:9411/
-    sender:
-      type: web  # 设置使用http的方式传输数据
-  sleuth:
-    sampler:
-      probability: 1  # 设置抽样采集为100%，默认为0.1，即10%
 
 # 2.0以后feign的断路器默认是关闭的,需配置以下
 feign:

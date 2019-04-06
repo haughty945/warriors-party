@@ -1,7 +1,3 @@
-#服务端口
-server:
-  port: 8010
-
 #基于Eureka的注册中心
 eureka:
   instance:
