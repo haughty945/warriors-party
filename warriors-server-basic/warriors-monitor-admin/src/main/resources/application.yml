@@ -46,10 +46,3 @@ info:
     cloud.version: @spring-cloud.version@
   author: Mine.Lee
   blog: https://mine-lee.github.io/warriors-party/
-
-logging:
-  config: classpath:logback-spring.xml
-#  path: /usr/java/log/warriors-monitor-admin
-#  file: /usr/java/log/warriors-monitor-admin/console.log
-  path: D:/workspace/my/_java/log/warriors-monitor-admin
-  file: D:/workspace/my/_java/log/warriors-monitor-admin/console.log
