@@ -20,10 +20,10 @@ spring:
     name: warriors-server-async  # 唯一的服务名称或者也可以称为ID
   #rabbitmq
   rabbitmq:
-    host: 127.0.0.1
+    host: 176.122.189.97
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: admin
 
 #sql输出级别
 logging:

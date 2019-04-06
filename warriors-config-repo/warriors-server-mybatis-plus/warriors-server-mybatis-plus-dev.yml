@@ -29,26 +29,26 @@ spring:
 #    注释的部分是单数据源的配置方式
 #    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
 #    username: root
-#    password: root
+#    password: Root@696969
 #    driver-class-name: com.mysql.jdbc.Driver
     dynamic:
       primary: master #设置默认的数据源或者数据源组,默认值即为master
       datasource:
         master:
           username: root
-          password: root
+          password: Root@696969
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/warriors
+          url: jdbc:mysql://176.122.189.97:3306/warriors
         slave_1:
           username: root
-          password: root
+          password: Root@696969
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/test
+          url: jdbc:mysql://176.122.189.97:3306/test
         slave_2:
           username: root
-          password: root
+          password: Root@696969
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/test1
+          url: jdbc:mysql://176.122.189.97:3306/test1
 
 #mybatis-plus
 mybatis-plus:

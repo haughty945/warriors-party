@@ -13,10 +13,10 @@ spring:
     enabled: true       # 开启配置刷新
   #rabbitmq
   rabbitmq:
-    host: 127.0.0.1
+    host: 176.122.189.97
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: admin
 
 # 网关的配置
 zuul:

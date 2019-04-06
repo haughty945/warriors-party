@@ -20,9 +20,9 @@ spring:
     name: warriors-server-jpa  # 唯一的服务名称或者也可以称为ID
   #数据库连接
   datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://176.122.189.97:3306/test?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: root
+    password: Rooy@696969
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
@@ -31,10 +31,10 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   #rabbitmq
   rabbitmq:
-    host: 127.0.0.1
+    host: 176.122.189.97
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: admin
 
 #sql输出级别
 logging:
