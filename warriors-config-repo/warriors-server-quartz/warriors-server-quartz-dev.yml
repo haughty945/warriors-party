@@ -20,9 +20,9 @@ spring:
     name: warriors-server-quartz   # 唯一的服务名称或者也可以称为ID
   #数据库连接
   datasource:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://176.122.189.97:3306/warriors-party?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: root
+    password: Root@696969
     driver-class-name: com.mysql.jdbc.Driver
   #rabbitmq
   rabbitmq:
