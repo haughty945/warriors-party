@@ -48,7 +48,7 @@ public class GlobalExceptionHandler implements ErrorController {
      */
     @RequestMapping("/error")
     public ResultVO NoHandlerFoundException(HttpServletRequest request) {
-        return new ResultVO(404,"接口不存在",null);
+        return new ResultVO(404, "接口不存在", null);
     }
 
     /**
@@ -77,9 +77,7 @@ public class GlobalExceptionHandler implements ErrorController {
             ret.setCode(500);
             ret.setMsg("服务器内部异常");
 //            log.error("LOG_ID : " + request.getAttribute("logId"));
-            log.error("RESPONSE_CODE : " + ret.getCode());
-            log.error("ERROR_DETAIL" + e.getMessage());
-            e.printStackTrace();
+            log.error("接口" + request.getRequestURI() + "出现异常 : " + e.getMessage(), e);
         }
 
         return ret;
