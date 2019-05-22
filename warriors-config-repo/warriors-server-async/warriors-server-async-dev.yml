@@ -1,6 +1,4 @@
-#服务端口
-server:
-  port: 8002
+
 
 #基于Eureka的注册中心
 eureka:
