@@ -24,6 +24,7 @@
         <module>warriors-monitor-admin</module>
         <module>warriors-monitor-turbine</module>
         <module>warriors-gateway-center</module>
+        <module>warriors-oauth2-center</module>
     </modules>
 
     <dependencies>
